@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { certificateSvg, downloadDataUrl, generateCertificateFiles } from "../lib/certificateClient";
+import { generateAnalysisPdf } from "../lib/analysisReport";
 
 export default function SuccessClient() {
   const [status, setStatus] = useState("Verifying payment...");
@@ -43,8 +44,10 @@ export default function SuccessClient() {
         setPaid(true);
         setStatus("Payment confirmed. Building your certificate...");
 
+        const analysisInput = localInfo.analysisInfo || { name: info.name, testRoute: info.testRoute, testTitle: info.testTitle, score: info.score, resultTitle: info.resultTitle };
+        const analysisGenerated = generateAnalysisPdf({ ...analysisInput, name: info.name });
         const generated = await generateCertificateFiles(info);
-        setFiles(generated);
+        setFiles({ ...generated, analysisPdfDataUrl: analysisGenerated.pdfDataUrl, analysisPdfBase64: analysisGenerated.pdfBase64 });
         setStatus("Your certificate is ready.");
 
         const sentKey = `rarescore:emailSent:${sessionId}`;
@@ -58,6 +61,7 @@ export default function SuccessClient() {
               sessionId,
               pdfBase64: generated.pdfBase64,
               pngBase64: generated.pngBase64,
+              analysisPdfBase64: analysisGenerated.pdfBase64,
             }),
           });
           if (emailRes.ok) {
@@ -114,7 +118,7 @@ export default function SuccessClient() {
               disabled={!files}
               onClick={() => downloadDataUrl(files.pdfDataUrl, "Official-RareScore-Certificate.pdf")}
             >
-              Download PDF
+              Download Certificate PDF
             </button>
             <button
               className="ghostButton"
@@ -122,6 +126,13 @@ export default function SuccessClient() {
               onClick={() => downloadDataUrl(files.pngDataUrl, "Official-RareScore-Certificate.png")}
             >
               Download PNG
+            </button>
+            <button
+              className="ghostButton"
+              disabled={!files?.analysisPdfDataUrl}
+              onClick={() => downloadDataUrl(files.analysisPdfDataUrl, "RareScore-Full-Analysis.pdf")}
+            >
+              Download Analysis PDF
             </button>
             <button
               className="ghostButton"

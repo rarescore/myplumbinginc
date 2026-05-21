@@ -1,230 +1,716 @@
-export type Article = {
-  slug: string;
-  title: string;
-  description: string;
-  date: string;
-  readTime: string;
-  category: string;
-  keywords: string[];
-  ctaLabel: string;
-  ctaHref: string;
-  intro: string;
-  sections: { heading: string; body: string[] }[];
-  faqs: { question: string; answer: string }[];
-};
-
+export type ArticleReference = { label: string; title: string; url: string; note: string };
+export type Article = { slug: string; title: string; description: string; date: string; readTime: string; category: string; keywords: string[]; ctaLabel: string; ctaHref: string; image: string; imageAlt: string; intro: string; sections: { heading: string; body: string[] }[]; faqs: { question: string; answer: string }[]; references: ArticleReference[] };
 export const articles: Article[] = [
   {
-    slug: "free-iq-test",
-    title: "What Is a Free IQ Test and What Does It Actually Measure?",
-    description: "Learn what online IQ-style tests measure, including pattern recognition, spatial reasoning, number logic, and problem solving.",
-    date: "2026-05-13",
-    readTime: "5 min read",
-    category: "IQ Test",
-    keywords: ["free IQ test", "online IQ test", "IQ-style test", "pattern recognition test"],
-    ctaLabel: "Take the RareScore IQ Test",
-    ctaHref: "/iq-test",
-    intro: "A free IQ test should feel clear, focused, and challenging without overwhelming the user. RareScore’s IQ Test is built around fast reasoning, visual patterns, number sequences, and problem solving.",
+    slug: "why-people-think-they-are-smarter-than-average", title: "Why People Think They Are Smarter Than Average", description: "People often compare upward and still come away feeling above the crowd. This guide explains why self-assessment can feel so convincing.", date: "2026-05-21", readTime: "18 min read", category: "Psychology", keywords: ["why people think they are smarter than average", "better than average effect", "self assessment"], ctaLabel: "Check Your IQ-Style Score", ctaHref: "/iq-test", image: "/blog-images/why-people-think-they-are-smarter-than-average.svg", imageAlt: "Premium editorial visual for Why People Think They Are Smarter Than Average", intro: "People often compare upward and still come away feeling above the crowd. This guide explains why self-assessment can feel so convincing. This article explains the idea in a practical way and points you toward a result you can test for yourself.",
     sections: [
-      { heading: "What an IQ-style test looks at", body: ["Most people think of an IQ test as one single score, but the experience usually comes from several mental skills working together. Pattern recognition, spatial reasoning, short logic puzzles, number relationships, and attention to detail all contribute to how a person performs.", "RareScore uses a quick online format. The goal is not to replace a professionally administered exam. The goal is to give users a fast, engaging IQ-style score they can compare, share, and optionally save as a certificate."] },
-      { heading: "Why visual questions matter", body: ["Visual questions make the test feel more real because they force the user to recognize relationships instead of only reading text. Rotating shapes, missing patterns, and odd-one-out tiles are easier to understand quickly and often feel more satisfying than long written questions."] },
-      { heading: "How to use your result", body: ["Your result is best used as a self-discovery score. The score is free. If you want to keep a polished version of your result, you can unlock an Official RareScore Certificate after finishing the test."] }
+      { heading: "The private question behind it", body: ["People often compare upward and still come away feeling above the crowd. This guide explains why self-assessment can feel so convincing. The reason this question gets searched is simple: it is usually attached to a private feeling people do not always say out loud.", "RareScore treats that feeling as a starting point, not a diagnosis. The goal is to give you a structured way to test one slice of your thinking, values, or rarity."] },
+      { heading: "What research suggests", body: ["Research such as Zell et al., 2020, Kruger & Dunning, 1999 helps explain why people care about scores, labels, ability, morality, and uniqueness. People compare themselves, defend their self-image, and look for feedback that feels specific.", "That is why a strong quiz result does not need to shout. It works when it gives language to something the reader already suspected."] },
+      { heading: "What this may mean for you", body: ["A useful result should feel personal without pretending to know everything about you. It should point to a pattern: how quickly you notice structure, which values win under pressure, or how often your instincts break from the crowd.", "The strongest results are specific enough to recognize and flexible enough to think about. They should make you pause for a second and ask whether the description fits."] },
+      { heading: "Try it against your own result", body: ["The next step is not to overthink it. Take the related RareScore test at /iq-test, get the free result, and then decide whether the full analysis or certificate is worth saving.", "If the result feels accurate, it becomes a mirror. If it surprises you, it becomes a conversation."] }
     ],
     faqs: [
-      { question: "Is RareScore a clinical IQ test?", answer: "No. RareScore is an online IQ-style test for entertainment and self-discovery." },
-      { question: "Do I need an account?", answer: "No. You can start without creating an account." }
+      { question: "What does why people think they are smarter than average mean?", answer: "People often compare upward and still come away feeling above the crowd. This guide explains why self-assessment can feel so convincing." },
+      { question: "Is the related RareScore test free?", answer: "Yes. The first attempt is free. Certificates, full analysis reports, printed options, framed options, and Fresh Question Sets are optional after the result." },
+      { question: "Can I save my result?", answer: "Yes. After the result, you can unlock a digital certificate and full analysis, or choose printed and framed certificate options." }
+    ],
+    references: [
+      { label: "Zell et al., 2020", title: "The Better-Than-Average Effect in Comparative Self-Evaluation", url: "https://pubmed.ncbi.nlm.nih.gov/31789535/", note: "Meta-analysis of how people compare themselves to others." },
+      { label: "Kruger & Dunning, 1999", title: "Unskilled and Unaware of It", url: "https://pubmed.ncbi.nlm.nih.gov/10626367/", note: "Classic paper on inaccurate self-assessment and metacognitive blind spots." },
+      { label: "Festinger, 1954", title: "A Theory of Social Comparison Processes", url: "https://journals.sagepub.com/doi/10.1177/001872675400700202", note: "Foundational social comparison theory." }
     ],
   },
   {
-    slug: "what-is-a-morality-test",
-    title: "What Is a Morality Test?",
-    description: "A simple guide to morality tests, ethical dilemmas, fairness, loyalty, honesty, and decisions under pressure.",
-    date: "2026-05-13",
-    readTime: "5 min read",
-    category: "Morality Test",
-    keywords: ["morality test", "moral compass test", "ethics test"],
-    ctaLabel: "Take the Morality Test",
-    ctaHref: "/morality-test",
-    intro: "A morality test asks how you make decisions when values collide. It is not about being perfect. It is about understanding which values you naturally protect first.",
+    slug: "dunning-kruger-effect-confidence-proof", title: "The Dunning-Kruger Effect and Why Confidence Feels Like Proof", description: "Confidence can feel like evidence even when it is only a feeling. Here is why ability and self-judgment do not always rise together.", date: "2026-05-21", readTime: "18 min read", category: "Psychology", keywords: ["Dunning Kruger effect", "confidence and ability", "self assessment"], ctaLabel: "Take the IQ Test", ctaHref: "/iq-test", image: "/blog-images/dunning-kruger-effect-confidence-proof.svg", imageAlt: "Premium editorial visual for The Dunning-Kruger Effect and Why Confidence Feels Like Proof", intro: "Confidence can feel like evidence even when it is only a feeling. Here is why ability and self-judgment do not always rise together. This article explains the idea in a practical way and points you toward a result you can test for yourself.",
     sections: [
-      { heading: "Morality is not always obvious", body: ["Most moral choices are easy when the right answer is obvious. The interesting part starts when truth conflicts with kindness, loyalty conflicts with fairness, or rules conflict with compassion."] },
-      { heading: "What RareScore looks at", body: ["RareScore’s Morality Test explores honesty, fairness, loyalty, empathy, responsibility, courage, and practical judgment."] },
-      { heading: "Why people like moral dilemmas", body: ["Moral dilemmas are shareable because two reasonable people can disagree. That makes them perfect for conversation."] }
+      { heading: "Common signs", body: ["Confidence can feel like evidence even when it is only a feeling. Here is why ability and self-judgment do not always rise together. The reason this question gets searched is simple: it is usually attached to a private feeling people do not always say out loud.", "RareScore treats that feeling as a starting point, not a diagnosis. The goal is to give you a structured way to test one slice of your thinking, values, or rarity."] },
+      { heading: "The mental loop underneath", body: ["Research such as Kruger & Dunning, 1999, Frederick, 2005 helps explain why people care about scores, labels, ability, morality, and uniqueness. People compare themselves, defend their self-image, and look for feedback that feels specific.", "That is why a strong quiz result does not need to shout. It works when it gives language to something the reader already suspected."] },
+      { heading: "Where people get it wrong", body: ["A useful result should feel personal without pretending to know everything about you. It should point to a pattern: how quickly you notice structure, which values win under pressure, or how often your instincts break from the crowd.", "The strongest results are specific enough to recognize and flexible enough to think about. They should make you pause for a second and ask whether the description fits."] },
+      { heading: "How RareScore turns it into a test", body: ["The next step is not to overthink it. Take the related RareScore test at /iq-test, get the free result, and then decide whether the full analysis or certificate is worth saving.", "If the result feels accurate, it becomes a mirror. If it surprises you, it becomes a conversation."] }
     ],
     faqs: [
-      { question: "Does the Morality Test judge me?", answer: "No. It gives a score and result type based on your answers." },
-      { question: "Can I share my result?", answer: "Yes. You can share your score or challenge a friend." }
+      { question: "What does the dunning-kruger effect and why confidence feels like proof mean?", answer: "Confidence can feel like evidence even when it is only a feeling. Here is why ability and self-judgment do not always rise together." },
+      { question: "Is the related RareScore test free?", answer: "Yes. The first attempt is free. Certificates, full analysis reports, printed options, framed options, and Fresh Question Sets are optional after the result." },
+      { question: "Can I save my result?", answer: "Yes. After the result, you can unlock a digital certificate and full analysis, or choose printed and framed certificate options." }
+    ],
+    references: [
+      { label: "Kruger & Dunning, 1999", title: "Unskilled and Unaware of It", url: "https://pubmed.ncbi.nlm.nih.gov/10626367/", note: "Classic paper on inaccurate self-assessment and metacognitive blind spots." },
+      { label: "Frederick, 2005", title: "Cognitive Reflection and Decision Making", url: "https://www.aeaweb.org/articles?id=10.1257/089533005775196732", note: "Research on intuitive answers versus reflective thinking." }
     ],
   },
   {
-    slug: "what-makes-someone-rare",
-    title: "What Makes Someone Rare?",
-    description: "Explore rarity, originality, instinct, personality signals, and what makes someone feel hard to categorize.",
-    date: "2026-05-13",
-    readTime: "5 min read",
-    category: "Rarity Test",
-    keywords: ["are you rare test", "rarity test", "rare personality"],
-    ctaLabel: "Take the Are You Rare Test",
-    ctaHref: "/are-you-rare",
-    intro: "Being rare is not only about being different. It is about how your instincts, associations, choices, and inner logic separate you from common patterns.",
+    slug: "social-comparison-online-scores", title: "Social Comparison: Why One Score Can Become Personal", description: "A score is just a number until it gives you a place in the room. That is why online results can feel surprisingly emotional.", date: "2026-05-21", readTime: "18 min read", category: "Psychology", keywords: ["social comparison", "online scores", "quiz score psychology"], ctaLabel: "Get Your Score", ctaHref: "/tests", image: "/blog-images/social-comparison-online-scores.svg", imageAlt: "Premium editorial visual for Social Comparison: Why One Score Can Become Personal", intro: "A score is just a number until it gives you a place in the room. That is why online results can feel surprisingly emotional. This article explains the idea in a practical way and points you toward a result you can test for yourself.",
     sections: [
-      { heading: "Rarity is more than uniqueness", body: ["A rare person may notice things others miss, connect unrelated ideas quickly, or make choices that are difficult to predict."] },
-      { heading: "Why instinctive answers matter", body: ["Some questions ask for your first word, first image, or first instinct. These answers can reveal how your mind connects ideas before you overthink them."] },
-      { heading: "How to interpret your RareScore", body: ["A higher RareScore may suggest uncommon associations, independent thinking, strong instinct, or a personality that does not fit simple categories."] }
+      { heading: "The uncomfortable part", body: ["A score is just a number until it gives you a place in the room. That is why online results can feel surprisingly emotional. The reason this question gets searched is simple: it is usually attached to a private feeling people do not always say out loud.", "RareScore treats that feeling as a starting point, not a diagnosis. The goal is to give you a structured way to test one slice of your thinking, values, or rarity."] },
+      { heading: "A useful way to think about it", body: ["Research such as Festinger, 1954, Zell et al., 2020 helps explain why people care about scores, labels, ability, morality, and uniqueness. People compare themselves, defend their self-image, and look for feedback that feels specific.", "That is why a strong quiz result does not need to shout. It works when it gives language to something the reader already suspected."] },
+      { heading: "What your answer may reveal", body: ["A useful result should feel personal without pretending to know everything about you. It should point to a pattern: how quickly you notice structure, which values win under pressure, or how often your instincts break from the crowd.", "The strongest results are specific enough to recognize and flexible enough to think about. They should make you pause for a second and ask whether the description fits."] },
+      { heading: "Make the result worth saving", body: ["The next step is not to overthink it. Take the related RareScore test at /tests, get the free result, and then decide whether the full analysis or certificate is worth saving.", "If the result feels accurate, it becomes a mirror. If it surprises you, it becomes a conversation."] }
     ],
     faqs: [
-      { question: "Is being rare the same as being better?", answer: "No. Rare means uncommon or hard to categorize." },
-      { question: "Can I get a certificate?", answer: "Yes. The certificate is optional after the free result." }
+      { question: "What does social comparison mean?", answer: "A score is just a number until it gives you a place in the room. That is why online results can feel surprisingly emotional." },
+      { question: "Is the related RareScore test free?", answer: "Yes. The first attempt is free. Certificates, full analysis reports, printed options, framed options, and Fresh Question Sets are optional after the result." },
+      { question: "Can I save my result?", answer: "Yes. After the result, you can unlock a digital certificate and full analysis, or choose printed and framed certificate options." }
+    ],
+    references: [
+      { label: "Festinger, 1954", title: "A Theory of Social Comparison Processes", url: "https://journals.sagepub.com/doi/10.1177/001872675400700202", note: "Foundational social comparison theory." },
+      { label: "Zell et al., 2020", title: "The Better-Than-Average Effect in Comparative Self-Evaluation", url: "https://pubmed.ncbi.nlm.nih.gov/31789535/", note: "Meta-analysis of how people compare themselves to others." }
     ],
   },
   {
-    slug: "pattern-recognition-test",
-    title: "Pattern Recognition Test: Why Visual Reasoning Feels So Addictive",
-    description: "Learn why pattern recognition questions are popular in IQ-style tests and how visual reasoning challenges the brain.",
-    date: "2026-05-13",
-    readTime: "5 min read",
-    category: "IQ Test",
-    keywords: ["pattern recognition test", "visual reasoning test", "shape pattern test"],
-    ctaLabel: "Try the IQ Test",
-    ctaHref: "/iq-test",
-    intro: "Pattern recognition questions feel addictive because the brain wants closure. When a sequence is incomplete, we naturally want to solve it.",
+    slug: "self-verification-quiz-results", title: "Why a Quiz Result Feels Good When It Sounds Like You", description: "When a result matches how you already see yourself, it can feel less like a quiz and more like recognition.", date: "2026-05-21", readTime: "9 min read", category: "Psychology", keywords: ["self verification theory quiz", "quiz result psychology", "identity confirmation"], ctaLabel: "Reveal Your RareScore", ctaHref: "/are-you-rare", image: "/blog-images/self-verification-quiz-results.svg", imageAlt: "Premium editorial visual for Why a Quiz Result Feels Good When It Sounds Like You", intro: "When a result matches how you already see yourself, it can feel less like a quiz and more like recognition. This article explains the idea in a practical way and points you toward a result you can test for yourself.",
     sections: [
-      { heading: "Why patterns feel satisfying", body: ["A good pattern question gives the brain just enough information to search for a rule. When the rule clicks, the answer feels rewarding."] },
-      { heading: "Common pattern types", body: ["Some patterns use number changes. Others use shape rotation, color changes, dot counts, direction, symmetry, or missing pieces."] },
-      { heading: "Why pattern recognition matters", body: ["Pattern recognition helps you predict what comes next. It shows up in planning, design, math, strategy, and everyday decision making."] }
+      { heading: "Why people search this", body: ["When a result matches how you already see yourself, it can feel less like a quiz and more like recognition. The reason this question gets searched is simple: it is usually attached to a private feeling people do not always say out loud.", "RareScore treats that feeling as a starting point, not a diagnosis. The goal is to give you a structured way to test one slice of your thinking, values, or rarity."] },
+      { heading: "The psychology in plain English", body: ["Research such as Swann, 2012 helps explain why people care about scores, labels, ability, morality, and uniqueness. People compare themselves, defend their self-image, and look for feedback that feels specific.", "That is why a strong quiz result does not need to shout. It works when it gives language to something the reader already suspected."] },
+      { heading: "A quick self-check", body: ["A useful result should feel personal without pretending to know everything about you. It should point to a pattern: how quickly you notice structure, which values win under pressure, or how often your instincts break from the crowd.", "The strongest results are specific enough to recognize and flexible enough to think about. They should make you pause for a second and ask whether the description fits."] },
+      { heading: "Where to go next", body: ["The next step is not to overthink it. Take the related RareScore test at /are-you-rare, get the free result, and then decide whether the full analysis or certificate is worth saving.", "If the result feels accurate, it becomes a mirror. If it surprises you, it becomes a conversation."] }
     ],
     faqs: [
-      { question: "Are visual pattern tests the same as IQ tests?", answer: "They can be part of an IQ-style test, but a professional IQ exam is more controlled." }
+      { question: "What does why a quiz result feels good when it sounds like you mean?", answer: "When a result matches how you already see yourself, it can feel less like a quiz and more like recognition." },
+      { question: "Is the related RareScore test free?", answer: "Yes. The first attempt is free. Certificates, full analysis reports, printed options, framed options, and Fresh Question Sets are optional after the result." },
+      { question: "Can I save my result?", answer: "Yes. After the result, you can unlock a digital certificate and full analysis, or choose printed and framed certificate options." }
+    ],
+    references: [
+      { label: "Swann, 2012", title: "Self-Verification Theory", url: "https://labs.la.utexas.edu/swann/files/2016/02/svt-lange-et-al.pdf", note: "Explains why people seek feedback that confirms their self-view." }
     ],
   },
   {
-    slug: "iq-test-vs-personality-test",
-    title: "IQ Test vs Personality Test: What Is the Difference?",
-    description: "Understand the difference between IQ-style tests, personality tests, rarity tests, and morality tests.",
-    date: "2026-05-13",
-    readTime: "5 min read",
-    category: "Self Discovery",
-    keywords: ["IQ test vs personality test", "personality test", "self discovery test"],
-    ctaLabel: "Choose a RareScore Test",
-    ctaHref: "/tests",
-    intro: "IQ-style tests and personality tests feel similar because both give a result, but they measure very different things.",
+    slug: "why-labels-feel-powerful", title: "Why Personality Labels Feel So Powerful", description: "People say they hate labels, but the right label can make a complicated identity feel easier to explain.", date: "2026-05-21", readTime: "9 min read", category: "Psychology", keywords: ["personality labels", "why labels feel powerful", "identity labels"], ctaLabel: "Find Your Result Type", ctaHref: "/tests", image: "/blog-images/why-labels-feel-powerful.svg", imageAlt: "Premium editorial visual for Why Personality Labels Feel So Powerful", intro: "People say they hate labels, but the right label can make a complicated identity feel easier to explain. This article explains the idea in a practical way and points you toward a result you can test for yourself.",
     sections: [
-      { heading: "IQ-style tests focus on problem solving", body: ["An IQ-style test usually asks questions with stronger right or wrong answers, such as patterns, number sequences, visual reasoning, and logic."] },
-      { heading: "Personality-style tests focus on patterns of choice", body: ["A personality test usually looks at preferences, instincts, social behavior, emotional reactions, and identity."] },
-      { heading: "Morality tests focus on values", body: ["A morality test asks what you do when values collide."] }
+      { heading: "What the pattern looks like", body: ["People say they hate labels, but the right label can make a complicated identity feel easier to explain. The reason this question gets searched is simple: it is usually attached to a private feeling people do not always say out loud.", "RareScore treats that feeling as a starting point, not a diagnosis. The goal is to give you a structured way to test one slice of your thinking, values, or rarity."] },
+      { heading: "Why it feels personal", body: ["Research such as Swann, 2012, Festinger, 1954 helps explain why people care about scores, labels, ability, morality, and uniqueness. People compare themselves, defend their self-image, and look for feedback that feels specific.", "That is why a strong quiz result does not need to shout. It works when it gives language to something the reader already suspected."] },
+      { heading: "A better interpretation", body: ["A useful result should feel personal without pretending to know everything about you. It should point to a pattern: how quickly you notice structure, which values win under pressure, or how often your instincts break from the crowd.", "The strongest results are specific enough to recognize and flexible enough to think about. They should make you pause for a second and ask whether the description fits."] },
+      { heading: "Take the next step", body: ["The next step is not to overthink it. Take the related RareScore test at /tests, get the free result, and then decide whether the full analysis or certificate is worth saving.", "If the result feels accurate, it becomes a mirror. If it surprises you, it becomes a conversation."] }
     ],
     faqs: [
-      { question: "Which test should I take first?", answer: "Take the one that makes you most curious." },
-      { question: "Can I take all three?", answer: "Yes. First attempts are free." }
+      { question: "What does why personality labels feel so powerful mean?", answer: "People say they hate labels, but the right label can make a complicated identity feel easier to explain." },
+      { question: "Is the related RareScore test free?", answer: "Yes. The first attempt is free. Certificates, full analysis reports, printed options, framed options, and Fresh Question Sets are optional after the result." },
+      { question: "Can I save my result?", answer: "Yes. After the result, you can unlock a digital certificate and full analysis, or choose printed and framed certificate options." }
+    ],
+    references: [
+      { label: "Swann, 2012", title: "Self-Verification Theory", url: "https://labs.la.utexas.edu/swann/files/2016/02/svt-lange-et-al.pdf", note: "Explains why people seek feedback that confirms their self-view." },
+      { label: "Festinger, 1954", title: "A Theory of Social Comparison Processes", url: "https://journals.sagepub.com/doi/10.1177/001872675400700202", note: "Foundational social comparison theory." }
     ],
   },
   {
-    slug: "why-people-share-quiz-results",
-    title: "Why People Love Sharing Quiz Results",
-    description: "Why online quiz results are so shareable and how scores become conversation starters.",
-    date: "2026-05-13",
-    readTime: "5 min read",
-    category: "Sharing",
-    keywords: ["share quiz results", "online personality quizzes", "viral quizzes"],
-    ctaLabel: "Take a Free RareScore Test",
-    ctaHref: "/tests",
-    intro: "Quiz results are shareable because they give people a simple way to express identity, curiosity, and comparison.",
+    slug: "moral-dilemmas-reveal-identity", title: "Why Moral Dilemmas Reveal Who You Are", description: "Moral choices become revealing when there is no clean answer and two values compete for first place.", date: "2026-05-21", readTime: "18 min read", category: "Psychology", keywords: ["moral dilemmas identity", "moral foundations theory", "morality test"], ctaLabel: "Take the Morality Test", ctaHref: "/morality-test", image: "/blog-images/moral-dilemmas-reveal-identity.svg", imageAlt: "Premium editorial visual for Why Moral Dilemmas Reveal Who You Are", intro: "Moral choices become revealing when there is no clean answer and two values compete for first place. This article explains the idea in a practical way and points you toward a result you can test for yourself.",
     sections: [
-      { heading: "A result gives people a label", body: ["A result like Pattern Strategist, Creative Signal, or Principled Protector gives people something to react to."] },
-      { heading: "Scores create comparison", body: ["A score gives people a reason to challenge a friend."] },
-      { heading: "Certificates make results feel official", body: ["An optional certificate gives users a polished version of the result."] }
+      { heading: "The private question behind it", body: ["Moral choices become revealing when there is no clean answer and two values compete for first place. The reason this question gets searched is simple: it is usually attached to a private feeling people do not always say out loud.", "RareScore treats that feeling as a starting point, not a diagnosis. The goal is to give you a structured way to test one slice of your thinking, values, or rarity."] },
+      { heading: "What research suggests", body: ["Research such as Graham et al., 2013 helps explain why people care about scores, labels, ability, morality, and uniqueness. People compare themselves, defend their self-image, and look for feedback that feels specific.", "That is why a strong quiz result does not need to shout. It works when it gives language to something the reader already suspected."] },
+      { heading: "What this may mean for you", body: ["A useful result should feel personal without pretending to know everything about you. It should point to a pattern: how quickly you notice structure, which values win under pressure, or how often your instincts break from the crowd.", "The strongest results are specific enough to recognize and flexible enough to think about. They should make you pause for a second and ask whether the description fits."] },
+      { heading: "Try it against your own result", body: ["The next step is not to overthink it. Take the related RareScore test at /morality-test, get the free result, and then decide whether the full analysis or certificate is worth saving.", "If the result feels accurate, it becomes a mirror. If it surprises you, it becomes a conversation."] }
     ],
     faqs: [
-      { question: "Can I share my result?", answer: "Yes. Sharing the score is free." },
-      { question: "Do I need a certificate to share?", answer: "No. The certificate is optional." }
+      { question: "What does why moral dilemmas reveal who you are mean?", answer: "Moral choices become revealing when there is no clean answer and two values compete for first place." },
+      { question: "Is the related RareScore test free?", answer: "Yes. The first attempt is free. Certificates, full analysis reports, printed options, framed options, and Fresh Question Sets are optional after the result." },
+      { question: "Can I save my result?", answer: "Yes. After the result, you can unlock a digital certificate and full analysis, or choose printed and framed certificate options." }
+    ],
+    references: [
+      { label: "Graham et al., 2013", title: "Moral Foundations Theory", url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2184440", note: "Framework for care, fairness, loyalty, authority, sanctity, and liberty." }
     ],
   },
   {
-    slug: "digital-certificate",
-    title: "What Is a Digital Certificate?",
-    description: "Learn what a digital certificate is and why people use certificates to save, print, or share online results.",
-    date: "2026-05-13",
-    readTime: "5 min read",
-    category: "Certificates",
-    keywords: ["digital certificate", "online certificate", "PDF certificate"],
-    ctaLabel: "Learn About RareScore Certificates",
-    ctaHref: "/faq",
-    intro: "A digital certificate is a downloadable file that presents a result, completion, or achievement in a polished format.",
+    slug: "cognitive-reflection-first-answer", title: "Why Your First Answer Is Not Always Your Best Answer", description: "Some questions punish speed. Others reward instinct. Cognitive reflection is knowing which mode you are in.", date: "2026-05-21", readTime: "9 min read", category: "Psychology", keywords: ["cognitive reflection test", "first answer psychology", "reflective thinking"], ctaLabel: "Try Reflection Questions", ctaHref: "/iq-test", image: "/blog-images/cognitive-reflection-first-answer.svg", imageAlt: "Premium editorial visual for Why Your First Answer Is Not Always Your Best Answer", intro: "Some questions punish speed. Others reward instinct. Cognitive reflection is knowing which mode you are in. This article explains the idea in a practical way and points you toward a result you can test for yourself.",
     sections: [
-      { heading: "Why people like certificates", body: ["A certificate turns a result into something more permanent. It gives the user a name, date, score, result type, and certificate ID."] },
-      { heading: "Digital vs printed certificates", body: ["A digital certificate is best for quick download and social sharing. A printed or framed certificate is a premium physical version."] },
-      { heading: "How RareScore certificates work", body: ["After completing a test, your score appears for free. If you choose to unlock a certificate, it includes your name, test name, score, result type, certificate ID, and issue date."] }
+      { heading: "Common signs", body: ["Some questions punish speed. Others reward instinct. Cognitive reflection is knowing which mode you are in. The reason this question gets searched is simple: it is usually attached to a private feeling people do not always say out loud.", "RareScore treats that feeling as a starting point, not a diagnosis. The goal is to give you a structured way to test one slice of your thinking, values, or rarity."] },
+      { heading: "The mental loop underneath", body: ["Research such as Frederick, 2005 helps explain why people care about scores, labels, ability, morality, and uniqueness. People compare themselves, defend their self-image, and look for feedback that feels specific.", "That is why a strong quiz result does not need to shout. It works when it gives language to something the reader already suspected."] },
+      { heading: "Where people get it wrong", body: ["A useful result should feel personal without pretending to know everything about you. It should point to a pattern: how quickly you notice structure, which values win under pressure, or how often your instincts break from the crowd.", "The strongest results are specific enough to recognize and flexible enough to think about. They should make you pause for a second and ask whether the description fits."] },
+      { heading: "How RareScore turns it into a test", body: ["The next step is not to overthink it. Take the related RareScore test at /iq-test, get the free result, and then decide whether the full analysis or certificate is worth saving.", "If the result feels accurate, it becomes a mirror. If it surprises you, it becomes a conversation."] }
     ],
     faqs: [
-      { question: "Do I need a certificate?", answer: "No. The score is free." },
-      { question: "What formats are available?", answer: "Digital PDF, PNG, printed, and framed options are available." }
+      { question: "What does why your first answer is not always your best answer mean?", answer: "Some questions punish speed. Others reward instinct. Cognitive reflection is knowing which mode you are in." },
+      { question: "Is the related RareScore test free?", answer: "Yes. The first attempt is free. Certificates, full analysis reports, printed options, framed options, and Fresh Question Sets are optional after the result." },
+      { question: "Can I save my result?", answer: "Yes. After the result, you can unlock a digital certificate and full analysis, or choose printed and framed certificate options." }
+    ],
+    references: [
+      { label: "Frederick, 2005", title: "Cognitive Reflection and Decision Making", url: "https://www.aeaweb.org/articles?id=10.1257/089533005775196732", note: "Research on intuitive answers versus reflective thinking." }
     ],
   },
   {
-    slug: "moral-dilemmas-explained",
-    title: "Moral Dilemmas Explained",
-    description: "Why moral dilemmas are difficult and what they reveal about fairness, loyalty, truth, and compassion.",
-    date: "2026-05-13",
-    readTime: "5 min read",
-    category: "Morality Test",
-    keywords: ["moral dilemmas", "morality questions", "ethical decision test"],
-    ctaLabel: "Try the Morality Test",
-    ctaHref: "/morality-test",
-    intro: "A moral dilemma is difficult because two values can both feel right at the same time.",
+    slug: "need-for-uniqueness-rare-personality", title: "Why \u201cRare\u201d Feels More Valuable Than \u201cNormal\u201d", description: "Rarity feels powerful because people want more than attention. They want evidence that they are not easy to replace.", date: "2026-05-21", readTime: "18 min read", category: "Psychology", keywords: ["need for uniqueness", "rare personality", "why rare feels valuable"], ctaLabel: "Check Your Rarity", ctaHref: "/are-you-rare", image: "/blog-images/need-for-uniqueness-rare-personality.svg", imageAlt: "Premium editorial visual for Why \u201cRare\u201d Feels More Valuable Than \u201cNormal\u201d", intro: "Rarity feels powerful because people want more than attention. They want evidence that they are not easy to replace. This article explains the idea in a practical way and points you toward a result you can test for yourself.",
     sections: [
-      { heading: "Why dilemmas reveal values", body: ["When there is no perfect answer, your choice reveals what you protect first."] },
-      { heading: "Intent vs impact", body: ["Some people judge an action by the intent behind it. Others focus on the impact it caused."] },
-      { heading: "How RareScore uses dilemmas", body: ["RareScore presents quick scenarios and asks what matters most."] }
+      { heading: "The uncomfortable part", body: ["Rarity feels powerful because people want more than attention. They want evidence that they are not easy to replace. The reason this question gets searched is simple: it is usually attached to a private feeling people do not always say out loud.", "RareScore treats that feeling as a starting point, not a diagnosis. The goal is to give you a structured way to test one slice of your thinking, values, or rarity."] },
+      { heading: "A useful way to think about it", body: ["Research such as Snyder & Fromkin, 1977, Swann, 2012 helps explain why people care about scores, labels, ability, morality, and uniqueness. People compare themselves, defend their self-image, and look for feedback that feels specific.", "That is why a strong quiz result does not need to shout. It works when it gives language to something the reader already suspected."] },
+      { heading: "What your answer may reveal", body: ["A useful result should feel personal without pretending to know everything about you. It should point to a pattern: how quickly you notice structure, which values win under pressure, or how often your instincts break from the crowd.", "The strongest results are specific enough to recognize and flexible enough to think about. They should make you pause for a second and ask whether the description fits."] },
+      { heading: "Make the result worth saving", body: ["The next step is not to overthink it. Take the related RareScore test at /are-you-rare, get the free result, and then decide whether the full analysis or certificate is worth saving.", "If the result feels accurate, it becomes a mirror. If it surprises you, it becomes a conversation."] }
     ],
     faqs: [
-      { question: "Are there right answers?", answer: "Many questions reveal priorities rather than one perfect answer." },
-      { question: "Can two good people get different results?", answer: "Yes." }
+      { question: "What does why \u201crare\u201d feels more valuable than \u201cnormal\u201d mean?", answer: "Rarity feels powerful because people want more than attention. They want evidence that they are not easy to replace." },
+      { question: "Is the related RareScore test free?", answer: "Yes. The first attempt is free. Certificates, full analysis reports, printed options, framed options, and Fresh Question Sets are optional after the result." },
+      { question: "Can I save my result?", answer: "Yes. After the result, you can unlock a digital certificate and full analysis, or choose printed and framed certificate options." }
+    ],
+    references: [
+      { label: "Snyder & Fromkin, 1977", title: "Need for Uniqueness", url: "https://sjdm.org/dmidi/Need_for_Uniqueness.html", note: "Classic research on the desire to feel distinct from others." },
+      { label: "Swann, 2012", title: "Self-Verification Theory", url: "https://labs.la.utexas.edu/swann/files/2016/02/svt-lange-et-al.pdf", note: "Explains why people seek feedback that confirms their self-view." }
     ],
   },
   {
-    slug: "how-online-quizzes-work",
-    title: "How Online Quizzes Work",
-    description: "A simple explanation of how online quizzes use questions, scoring, results, and sharing.",
-    date: "2026-05-13",
-    readTime: "5 min read",
-    category: "Online Quizzes",
-    keywords: ["online quiz", "quiz scoring", "personality quiz"],
-    ctaLabel: "Start a RareScore Test",
-    ctaHref: "/tests",
-    intro: "Online quizzes work by turning answers into a result that feels personal, simple, and shareable.",
+    slug: "narcissism-confidence-self-perception", title: "Narcissism, Confidence, and the Need to Feel Exceptional", description: "There is a difference between healthy confidence and needing every result to confirm superiority. The line is more interesting than it looks.", date: "2026-05-21", readTime: "18 min read", category: "Psychology", keywords: ["narcissism confidence self perception", "intellectual self confidence", "confidence psychology"], ctaLabel: "Test Your Score", ctaHref: "/iq-test", image: "/blog-images/narcissism-confidence-self-perception.svg", imageAlt: "Premium editorial visual for Narcissism, Confidence, and the Need to Feel Exceptional", intro: "There is a difference between healthy confidence and needing every result to confirm superiority. The line is more interesting than it looks. This article explains the idea in a practical way and points you toward a result you can test for yourself.",
     sections: [
-      { heading: "Question design", body: ["A good quiz starts with questions that feel easy to answer but meaningful enough to affect the result."] },
-      { heading: "Scoring", body: ["Scoring can be based on correct answers, category weights, sliders, or answer patterns."] },
-      { heading: "Why design matters", body: ["A good quiz keeps one question in focus and gives clear next steps."] }
+      { heading: "Why people search this", body: ["There is a difference between healthy confidence and needing every result to confirm superiority. The line is more interesting than it looks. The reason this question gets searched is simple: it is usually attached to a private feeling people do not always say out loud.", "RareScore treats that feeling as a starting point, not a diagnosis. The goal is to give you a structured way to test one slice of your thinking, values, or rarity."] },
+      { heading: "The psychology in plain English", body: ["Research such as Leniarska et al., 2022, Kruger & Dunning, 1999 helps explain why people care about scores, labels, ability, morality, and uniqueness. People compare themselves, defend their self-image, and look for feedback that feels specific.", "That is why a strong quiz result does not need to shout. It works when it gives language to something the reader already suspected."] },
+      { heading: "A quick self-check", body: ["A useful result should feel personal without pretending to know everything about you. It should point to a pattern: how quickly you notice structure, which values win under pressure, or how often your instincts break from the crowd.", "The strongest results are specific enough to recognize and flexible enough to think about. They should make you pause for a second and ask whether the description fits."] },
+      { heading: "Where to go next", body: ["The next step is not to overthink it. Take the related RareScore test at /iq-test, get the free result, and then decide whether the full analysis or certificate is worth saving.", "If the result feels accurate, it becomes a mirror. If it surprises you, it becomes a conversation."] }
     ],
     faqs: [
-      { question: "Why one question per screen?", answer: "It keeps the experience focused and mobile-friendly." },
-      { question: "Can quizzes be fun and meaningful?", answer: "Yes." }
+      { question: "What does narcissism, confidence, and the need to feel exceptional mean?", answer: "There is a difference between healthy confidence and needing every result to confirm superiority. The line is more interesting than it looks." },
+      { question: "Is the related RareScore test free?", answer: "Yes. The first attempt is free. Certificates, full analysis reports, printed options, framed options, and Fresh Question Sets are optional after the result." },
+      { question: "Can I save my result?", answer: "Yes. After the result, you can unlock a digital certificate and full analysis, or choose printed and framed certificate options." }
+    ],
+    references: [
+      { label: "Leniarska et al., 2022", title: "Narcissistic Intellectual Self-Confidence", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC8850911/", note: "Research connecting intelligence self-beliefs and intellectual confidence." },
+      { label: "Kruger & Dunning, 1999", title: "Unskilled and Unaware of It", url: "https://pubmed.ncbi.nlm.nih.gov/10626367/", note: "Classic paper on inaccurate self-assessment and metacognitive blind spots." },
+      { label: "Zell et al., 2020", title: "The Better-Than-Average Effect in Comparative Self-Evaluation", url: "https://pubmed.ncbi.nlm.nih.gov/31789535/", note: "Meta-analysis of how people compare themselves to others." }
     ],
   },
   {
-    slug: "how-rarescore-works",
-    title: "How RareScore Works",
-    description: "Learn how RareScore tests, scores, certificates, fresh question sets, and sharing features work.",
-    date: "2026-05-13",
-    readTime: "5 min read",
-    category: "RareScore",
-    keywords: ["RareScore", "RareScore test", "Official RareScore Certificate"],
-    ctaLabel: "Choose a Test",
-    ctaHref: "/tests",
-    intro: "RareScore is built to be simple: choose a test, answer questions, get your score, and decide whether you want to save or share the result.",
+    slug: "why-intelligence-feels-isolating", title: "Why Intelligence Can Feel Isolating", description: "Thinking quickly can make the room feel slow. That does not always mean you are alone, but it can feel that way.", date: "2026-05-21", readTime: "9 min read", category: "Psychology", keywords: ["why intelligence feels isolating", "smart people feel alone", "pattern thinkers"], ctaLabel: "See Your IQ-Style Score", ctaHref: "/iq-test", image: "/blog-images/why-intelligence-feels-isolating.svg", imageAlt: "Premium editorial visual for Why Intelligence Can Feel Isolating", intro: "Thinking quickly can make the room feel slow. That does not always mean you are alone, but it can feel that way. This article explains the idea in a practical way and points you toward a result you can test for yourself.",
     sections: [
-      { heading: "The free test experience", body: ["Each first attempt is free. Users can choose the IQ Test, Morality Test, or Are You Rare test."] },
-      { heading: "Certificates", body: ["Users can optionally unlock an Official RareScore Certificate. Digital, printed, and framed options are available."] },
-      { heading: "Fresh Question Sets", body: ["Users who want a second result can unlock a Fresh 30 Question Set."] }
+      { heading: "What the pattern looks like", body: ["Thinking quickly can make the room feel slow. That does not always mean you are alone, but it can feel that way. The reason this question gets searched is simple: it is usually attached to a private feeling people do not always say out loud.", "RareScore treats that feeling as a starting point, not a diagnosis. The goal is to give you a structured way to test one slice of your thinking, values, or rarity."] },
+      { heading: "Why it feels personal", body: ["Research such as Festinger, 1954, Swann, 2012 helps explain why people care about scores, labels, ability, morality, and uniqueness. People compare themselves, defend their self-image, and look for feedback that feels specific.", "That is why a strong quiz result does not need to shout. It works when it gives language to something the reader already suspected."] },
+      { heading: "A better interpretation", body: ["A useful result should feel personal without pretending to know everything about you. It should point to a pattern: how quickly you notice structure, which values win under pressure, or how often your instincts break from the crowd.", "The strongest results are specific enough to recognize and flexible enough to think about. They should make you pause for a second and ask whether the description fits."] },
+      { heading: "Take the next step", body: ["The next step is not to overthink it. Take the related RareScore test at /iq-test, get the free result, and then decide whether the full analysis or certificate is worth saving.", "If the result feels accurate, it becomes a mirror. If it surprises you, it becomes a conversation."] }
     ],
     faqs: [
-      { question: "Is RareScore free?", answer: "The first attempt of each test is free." },
-      { question: "What tests are available?", answer: "IQ, Morality, and Are You Rare." }
+      { question: "What does why intelligence can feel isolating mean?", answer: "Thinking quickly can make the room feel slow. That does not always mean you are alone, but it can feel that way." },
+      { question: "Is the related RareScore test free?", answer: "Yes. The first attempt is free. Certificates, full analysis reports, printed options, framed options, and Fresh Question Sets are optional after the result." },
+      { question: "Can I save my result?", answer: "Yes. After the result, you can unlock a digital certificate and full analysis, or choose printed and framed certificate options." }
+    ],
+    references: [
+      { label: "Festinger, 1954", title: "A Theory of Social Comparison Processes", url: "https://journals.sagepub.com/doi/10.1177/001872675400700202", note: "Foundational social comparison theory." },
+      { label: "Swann, 2012", title: "Self-Verification Theory", url: "https://labs.la.utexas.edu/swann/files/2016/02/svt-lange-et-al.pdf", note: "Explains why people seek feedback that confirms their self-view." }
+    ],
+  },
+  {
+    slug: "why-smart-people-overthink-conversations", title: "Why Smart People Overthink Conversations", description: "If you replay conversations, read between lines, and predict reactions, your mind may be solving a social puzzle nobody assigned.", date: "2026-05-21", readTime: "9 min read", category: "Psychology", keywords: ["why smart people overthink", "overthinking conversations", "self monitoring"], ctaLabel: "Choose Your Test", ctaHref: "/tests", image: "/blog-images/why-smart-people-overthink-conversations.svg", imageAlt: "Premium editorial visual for Why Smart People Overthink Conversations", intro: "If you replay conversations, read between lines, and predict reactions, your mind may be solving a social puzzle nobody assigned. This article explains the idea in a practical way and points you toward a result you can test for yourself.",
+    sections: [
+      { heading: "The private question behind it", body: ["If you replay conversations, read between lines, and predict reactions, your mind may be solving a social puzzle nobody assigned. The reason this question gets searched is simple: it is usually attached to a private feeling people do not always say out loud.", "RareScore treats that feeling as a starting point, not a diagnosis. The goal is to give you a structured way to test one slice of your thinking, values, or rarity."] },
+      { heading: "What research suggests", body: ["Research such as Frederick, 2005, Swann, 2012 helps explain why people care about scores, labels, ability, morality, and uniqueness. People compare themselves, defend their self-image, and look for feedback that feels specific.", "That is why a strong quiz result does not need to shout. It works when it gives language to something the reader already suspected."] },
+      { heading: "What this may mean for you", body: ["A useful result should feel personal without pretending to know everything about you. It should point to a pattern: how quickly you notice structure, which values win under pressure, or how often your instincts break from the crowd.", "The strongest results are specific enough to recognize and flexible enough to think about. They should make you pause for a second and ask whether the description fits."] },
+      { heading: "Try it against your own result", body: ["The next step is not to overthink it. Take the related RareScore test at /tests, get the free result, and then decide whether the full analysis or certificate is worth saving.", "If the result feels accurate, it becomes a mirror. If it surprises you, it becomes a conversation."] }
+    ],
+    faqs: [
+      { question: "What does why smart people overthink conversations mean?", answer: "If you replay conversations, read between lines, and predict reactions, your mind may be solving a social puzzle nobody assigned." },
+      { question: "Is the related RareScore test free?", answer: "Yes. The first attempt is free. Certificates, full analysis reports, printed options, framed options, and Fresh Question Sets are optional after the result." },
+      { question: "Can I save my result?", answer: "Yes. After the result, you can unlock a digital certificate and full analysis, or choose printed and framed certificate options." }
+    ],
+    references: [
+      { label: "Frederick, 2005", title: "Cognitive Reflection and Decision Making", url: "https://www.aeaweb.org/articles?id=10.1257/089533005775196732", note: "Research on intuitive answers versus reflective thinking." },
+      { label: "Swann, 2012", title: "Self-Verification Theory", url: "https://labs.la.utexas.edu/swann/files/2016/02/svt-lange-et-al.pdf", note: "Explains why people seek feedback that confirms their self-view." }
+    ],
+  },
+  {
+    slug: "pattern-recognition-fluid-reasoning", title: "Pattern Recognition and Fluid Reasoning", description: "Fast rule-finding feels like intelligence because it turns chaos into structure before other people see the pattern.", date: "2026-05-21", readTime: "18 min read", category: "IQ Test", keywords: ["pattern recognition and fluid reasoning", "fluid reasoning", "visual reasoning"], ctaLabel: "Test Pattern Recognition", ctaHref: "/iq-test", image: "/blog-images/pattern-recognition-fluid-reasoning.svg", imageAlt: "Premium editorial visual for Pattern Recognition and Fluid Reasoning", intro: "Fast rule-finding feels like intelligence because it turns chaos into structure before other people see the pattern. This article explains the idea in a practical way and points you toward a result you can test for yourself.",
+    sections: [
+      { heading: "Common signs", body: ["Fast rule-finding feels like intelligence because it turns chaos into structure before other people see the pattern. The reason this question gets searched is simple: it is usually attached to a private feeling people do not always say out loud.", "RareScore treats that feeling as a starting point, not a diagnosis. The goal is to give you a structured way to test one slice of your thinking, values, or rarity."] },
+      { heading: "The mental loop underneath", body: ["Research such as Frederick, 2005 helps explain why people care about scores, labels, ability, morality, and uniqueness. People compare themselves, defend their self-image, and look for feedback that feels specific.", "That is why a strong quiz result does not need to shout. It works when it gives language to something the reader already suspected."] },
+      { heading: "Where people get it wrong", body: ["A useful result should feel personal without pretending to know everything about you. It should point to a pattern: how quickly you notice structure, which values win under pressure, or how often your instincts break from the crowd.", "The strongest results are specific enough to recognize and flexible enough to think about. They should make you pause for a second and ask whether the description fits."] },
+      { heading: "How RareScore turns it into a test", body: ["The next step is not to overthink it. Take the related RareScore test at /iq-test, get the free result, and then decide whether the full analysis or certificate is worth saving.", "If the result feels accurate, it becomes a mirror. If it surprises you, it becomes a conversation."] }
+    ],
+    faqs: [
+      { question: "What does pattern recognition and fluid reasoning mean?", answer: "Fast rule-finding feels like intelligence because it turns chaos into structure before other people see the pattern." },
+      { question: "Is the related RareScore test free?", answer: "Yes. The first attempt is free. Certificates, full analysis reports, printed options, framed options, and Fresh Question Sets are optional after the result." },
+      { question: "Can I save my result?", answer: "Yes. After the result, you can unlock a digital certificate and full analysis, or choose printed and framed certificate options." }
+    ],
+    references: [
+      { label: "Frederick, 2005", title: "Cognitive Reflection and Decision Making", url: "https://www.aeaweb.org/articles?id=10.1257/089533005775196732", note: "Research on intuitive answers versus reflective thinking." }
+    ],
+  },
+  {
+    slug: "moral-judgment-under-pressure", title: "Moral Judgment Under Pressure", description: "Pressure does not create your values from nothing. It reveals which value reaches the front first.", date: "2026-05-21", readTime: "9 min read", category: "Morality Test", keywords: ["moral judgment under pressure", "morality test", "moral psychology"], ctaLabel: "Take the Morality Test", ctaHref: "/morality-test", image: "/blog-images/moral-judgment-under-pressure.svg", imageAlt: "Premium editorial visual for Moral Judgment Under Pressure", intro: "Pressure does not create your values from nothing. It reveals which value reaches the front first. This article explains the idea in a practical way and points you toward a result you can test for yourself.",
+    sections: [
+      { heading: "The uncomfortable part", body: ["Pressure does not create your values from nothing. It reveals which value reaches the front first. The reason this question gets searched is simple: it is usually attached to a private feeling people do not always say out loud.", "RareScore treats that feeling as a starting point, not a diagnosis. The goal is to give you a structured way to test one slice of your thinking, values, or rarity."] },
+      { heading: "A useful way to think about it", body: ["Research such as Graham et al., 2013, Frederick, 2005 helps explain why people care about scores, labels, ability, morality, and uniqueness. People compare themselves, defend their self-image, and look for feedback that feels specific.", "That is why a strong quiz result does not need to shout. It works when it gives language to something the reader already suspected."] },
+      { heading: "What your answer may reveal", body: ["A useful result should feel personal without pretending to know everything about you. It should point to a pattern: how quickly you notice structure, which values win under pressure, or how often your instincts break from the crowd.", "The strongest results are specific enough to recognize and flexible enough to think about. They should make you pause for a second and ask whether the description fits."] },
+      { heading: "Make the result worth saving", body: ["The next step is not to overthink it. Take the related RareScore test at /morality-test, get the free result, and then decide whether the full analysis or certificate is worth saving.", "If the result feels accurate, it becomes a mirror. If it surprises you, it becomes a conversation."] }
+    ],
+    faqs: [
+      { question: "What does moral judgment under pressure mean?", answer: "Pressure does not create your values from nothing. It reveals which value reaches the front first." },
+      { question: "Is the related RareScore test free?", answer: "Yes. The first attempt is free. Certificates, full analysis reports, printed options, framed options, and Fresh Question Sets are optional after the result." },
+      { question: "Can I save my result?", answer: "Yes. After the result, you can unlock a digital certificate and full analysis, or choose printed and framed certificate options." }
+    ],
+    references: [
+      { label: "Graham et al., 2013", title: "Moral Foundations Theory", url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2184440", note: "Framework for care, fairness, loyalty, authority, sanctity, and liberty." },
+      { label: "Frederick, 2005", title: "Cognitive Reflection and Decision Making", url: "https://www.aeaweb.org/articles?id=10.1257/089533005775196732", note: "Research on intuitive answers versus reflective thinking." }
+    ],
+  },
+  {
+    slug: "identity-signaling-online-quizzes", title: "Identity Signaling and Online Quizzes", description: "A result can act like a small public signal: this is how I see myself, and this is how I want to be read.", date: "2026-05-21", readTime: "9 min read", category: "Psychology", keywords: ["identity signaling online quizzes", "quiz results sharing", "self expression"], ctaLabel: "Take a Test", ctaHref: "/tests", image: "/blog-images/identity-signaling-online-quizzes.svg", imageAlt: "Premium editorial visual for Identity Signaling and Online Quizzes", intro: "A result can act like a small public signal: this is how I see myself, and this is how I want to be read. This article explains the idea in a practical way and points you toward a result you can test for yourself.",
+    sections: [
+      { heading: "Why people search this", body: ["A result can act like a small public signal: this is how I see myself, and this is how I want to be read. The reason this question gets searched is simple: it is usually attached to a private feeling people do not always say out loud.", "RareScore treats that feeling as a starting point, not a diagnosis. The goal is to give you a structured way to test one slice of your thinking, values, or rarity."] },
+      { heading: "The psychology in plain English", body: ["Research such as Swann, 2012, Festinger, 1954 helps explain why people care about scores, labels, ability, morality, and uniqueness. People compare themselves, defend their self-image, and look for feedback that feels specific.", "That is why a strong quiz result does not need to shout. It works when it gives language to something the reader already suspected."] },
+      { heading: "A quick self-check", body: ["A useful result should feel personal without pretending to know everything about you. It should point to a pattern: how quickly you notice structure, which values win under pressure, or how often your instincts break from the crowd.", "The strongest results are specific enough to recognize and flexible enough to think about. They should make you pause for a second and ask whether the description fits."] },
+      { heading: "Where to go next", body: ["The next step is not to overthink it. Take the related RareScore test at /tests, get the free result, and then decide whether the full analysis or certificate is worth saving.", "If the result feels accurate, it becomes a mirror. If it surprises you, it becomes a conversation."] }
+    ],
+    faqs: [
+      { question: "What does identity signaling and online quizzes mean?", answer: "A result can act like a small public signal: this is how I see myself, and this is how I want to be read." },
+      { question: "Is the related RareScore test free?", answer: "Yes. The first attempt is free. Certificates, full analysis reports, printed options, framed options, and Fresh Question Sets are optional after the result." },
+      { question: "Can I save my result?", answer: "Yes. After the result, you can unlock a digital certificate and full analysis, or choose printed and framed certificate options." }
+    ],
+    references: [
+      { label: "Swann, 2012", title: "Self-Verification Theory", url: "https://labs.la.utexas.edu/swann/files/2016/02/svt-lange-et-al.pdf", note: "Explains why people seek feedback that confirms their self-view." },
+      { label: "Festinger, 1954", title: "A Theory of Social Comparison Processes", url: "https://journals.sagepub.com/doi/10.1177/001872675400700202", note: "Foundational social comparison theory." }
+    ],
+  },
+  {
+    slug: "why-people-share-personality-results", title: "Why People Share Personality Test Results", description: "People share results because a good result does two things at once: it explains them and challenges other people to compare.", date: "2026-05-21", readTime: "9 min read", category: "Sharing", keywords: ["why people share personality test results", "quiz sharing psychology", "identity signaling"], ctaLabel: "Get a Shareable Result", ctaHref: "/tests", image: "/blog-images/why-people-share-personality-results.svg", imageAlt: "Premium editorial visual for Why People Share Personality Test Results", intro: "People share results because a good result does two things at once: it explains them and challenges other people to compare. This article explains the idea in a practical way and points you toward a result you can test for yourself.",
+    sections: [
+      { heading: "What the pattern looks like", body: ["People share results because a good result does two things at once: it explains them and challenges other people to compare. The reason this question gets searched is simple: it is usually attached to a private feeling people do not always say out loud.", "RareScore treats that feeling as a starting point, not a diagnosis. The goal is to give you a structured way to test one slice of your thinking, values, or rarity."] },
+      { heading: "Why it feels personal", body: ["Research such as Festinger, 1954, Swann, 2012 helps explain why people care about scores, labels, ability, morality, and uniqueness. People compare themselves, defend their self-image, and look for feedback that feels specific.", "That is why a strong quiz result does not need to shout. It works when it gives language to something the reader already suspected."] },
+      { heading: "A better interpretation", body: ["A useful result should feel personal without pretending to know everything about you. It should point to a pattern: how quickly you notice structure, which values win under pressure, or how often your instincts break from the crowd.", "The strongest results are specific enough to recognize and flexible enough to think about. They should make you pause for a second and ask whether the description fits."] },
+      { heading: "Take the next step", body: ["The next step is not to overthink it. Take the related RareScore test at /tests, get the free result, and then decide whether the full analysis or certificate is worth saving.", "If the result feels accurate, it becomes a mirror. If it surprises you, it becomes a conversation."] }
+    ],
+    faqs: [
+      { question: "What does why people share personality test results mean?", answer: "People share results because a good result does two things at once: it explains them and challenges other people to compare." },
+      { question: "Is the related RareScore test free?", answer: "Yes. The first attempt is free. Certificates, full analysis reports, printed options, framed options, and Fresh Question Sets are optional after the result." },
+      { question: "Can I save my result?", answer: "Yes. After the result, you can unlock a digital certificate and full analysis, or choose printed and framed certificate options." }
+    ],
+    references: [
+      { label: "Festinger, 1954", title: "A Theory of Social Comparison Processes", url: "https://journals.sagepub.com/doi/10.1177/001872675400700202", note: "Foundational social comparison theory." },
+      { label: "Swann, 2012", title: "Self-Verification Theory", url: "https://labs.la.utexas.edu/swann/files/2016/02/svt-lange-et-al.pdf", note: "Explains why people seek feedback that confirms their self-view." }
+    ],
+  },
+  {
+    slug: "why-people-want-proof-of-intelligence", title: "Why People Want Proof of Intelligence", description: "A private belief feels different when it becomes a score, a label, or a certificate with your name on it.", date: "2026-05-21", readTime: "18 min read", category: "Certificates", keywords: ["proof of intelligence", "IQ certificate", "intelligence validation"], ctaLabel: "Make Your Result Official", ctaHref: "/certificate", image: "/blog-images/why-people-want-proof-of-intelligence.svg", imageAlt: "Premium editorial visual for Why People Want Proof of Intelligence", intro: "A private belief feels different when it becomes a score, a label, or a certificate with your name on it. This article explains the idea in a practical way and points you toward a result you can test for yourself.",
+    sections: [
+      { heading: "The private question behind it", body: ["A private belief feels different when it becomes a score, a label, or a certificate with your name on it. The reason this question gets searched is simple: it is usually attached to a private feeling people do not always say out loud.", "RareScore treats that feeling as a starting point, not a diagnosis. The goal is to give you a structured way to test one slice of your thinking, values, or rarity."] },
+      { heading: "What research suggests", body: ["Research such as Swann, 2012, Leniarska et al., 2022 helps explain why people care about scores, labels, ability, morality, and uniqueness. People compare themselves, defend their self-image, and look for feedback that feels specific.", "That is why a strong quiz result does not need to shout. It works when it gives language to something the reader already suspected."] },
+      { heading: "What this may mean for you", body: ["A useful result should feel personal without pretending to know everything about you. It should point to a pattern: how quickly you notice structure, which values win under pressure, or how often your instincts break from the crowd.", "The strongest results are specific enough to recognize and flexible enough to think about. They should make you pause for a second and ask whether the description fits."] },
+      { heading: "Try it against your own result", body: ["The next step is not to overthink it. Take the related RareScore test at /certificate, get the free result, and then decide whether the full analysis or certificate is worth saving.", "If the result feels accurate, it becomes a mirror. If it surprises you, it becomes a conversation."] }
+    ],
+    faqs: [
+      { question: "What does why people want proof of intelligence mean?", answer: "A private belief feels different when it becomes a score, a label, or a certificate with your name on it." },
+      { question: "Is the related RareScore test free?", answer: "Yes. The first attempt is free. Certificates, full analysis reports, printed options, framed options, and Fresh Question Sets are optional after the result." },
+      { question: "Can I save my result?", answer: "Yes. After the result, you can unlock a digital certificate and full analysis, or choose printed and framed certificate options." }
+    ],
+    references: [
+      { label: "Swann, 2012", title: "Self-Verification Theory", url: "https://labs.la.utexas.edu/swann/files/2016/02/svt-lange-et-al.pdf", note: "Explains why people seek feedback that confirms their self-view." },
+      { label: "Leniarska et al., 2022", title: "Narcissistic Intellectual Self-Confidence", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC8850911/", note: "Research connecting intelligence self-beliefs and intellectual confidence." },
+      { label: "Zell et al., 2020", title: "The Better-Than-Average Effect in Comparative Self-Evaluation", url: "https://pubmed.ncbi.nlm.nih.gov/31789535/", note: "Meta-analysis of how people compare themselves to others." }
+    ],
+  },
+  {
+    slug: "why-people-like-being-categorized", title: "Why People Like Being Categorized", description: "The right category can feel like a shortcut to being understood, even when it cannot capture the whole person.", date: "2026-05-21", readTime: "9 min read", category: "Psychology", keywords: ["why people like being categorized", "personality type psychology", "identity categories"], ctaLabel: "Find Your Type", ctaHref: "/tests", image: "/blog-images/why-people-like-being-categorized.svg", imageAlt: "Premium editorial visual for Why People Like Being Categorized", intro: "The right category can feel like a shortcut to being understood, even when it cannot capture the whole person. This article explains the idea in a practical way and points you toward a result you can test for yourself.",
+    sections: [
+      { heading: "Common signs", body: ["The right category can feel like a shortcut to being understood, even when it cannot capture the whole person. The reason this question gets searched is simple: it is usually attached to a private feeling people do not always say out loud.", "RareScore treats that feeling as a starting point, not a diagnosis. The goal is to give you a structured way to test one slice of your thinking, values, or rarity."] },
+      { heading: "The mental loop underneath", body: ["Research such as Swann, 2012, Festinger, 1954 helps explain why people care about scores, labels, ability, morality, and uniqueness. People compare themselves, defend their self-image, and look for feedback that feels specific.", "That is why a strong quiz result does not need to shout. It works when it gives language to something the reader already suspected."] },
+      { heading: "Where people get it wrong", body: ["A useful result should feel personal without pretending to know everything about you. It should point to a pattern: how quickly you notice structure, which values win under pressure, or how often your instincts break from the crowd.", "The strongest results are specific enough to recognize and flexible enough to think about. They should make you pause for a second and ask whether the description fits."] },
+      { heading: "How RareScore turns it into a test", body: ["The next step is not to overthink it. Take the related RareScore test at /tests, get the free result, and then decide whether the full analysis or certificate is worth saving.", "If the result feels accurate, it becomes a mirror. If it surprises you, it becomes a conversation."] }
+    ],
+    faqs: [
+      { question: "What does why people like being categorized mean?", answer: "The right category can feel like a shortcut to being understood, even when it cannot capture the whole person." },
+      { question: "Is the related RareScore test free?", answer: "Yes. The first attempt is free. Certificates, full analysis reports, printed options, framed options, and Fresh Question Sets are optional after the result." },
+      { question: "Can I save my result?", answer: "Yes. After the result, you can unlock a digital certificate and full analysis, or choose printed and framed certificate options." }
+    ],
+    references: [
+      { label: "Swann, 2012", title: "Self-Verification Theory", url: "https://labs.la.utexas.edu/swann/files/2016/02/svt-lange-et-al.pdf", note: "Explains why people seek feedback that confirms their self-view." },
+      { label: "Festinger, 1954", title: "A Theory of Social Comparison Processes", url: "https://journals.sagepub.com/doi/10.1177/001872675400700202", note: "Foundational social comparison theory." }
+    ],
+  },
+  {
+    slug: "why-certificates-make-results-official", title: "Why Certificates Make Results Feel Official", description: "A certificate turns a temporary screen into a saved object. That small shift changes how the result feels.", date: "2026-05-21", readTime: "9 min read", category: "Certificates", keywords: ["why certificates feel official", "digital certificate psychology", "quiz certificate"], ctaLabel: "Preview Certificate", ctaHref: "/certificate", image: "/blog-images/why-certificates-make-results-official.svg", imageAlt: "Premium editorial visual for Why Certificates Make Results Feel Official", intro: "A certificate turns a temporary screen into a saved object. That small shift changes how the result feels. This article explains the idea in a practical way and points you toward a result you can test for yourself.",
+    sections: [
+      { heading: "The uncomfortable part", body: ["A certificate turns a temporary screen into a saved object. That small shift changes how the result feels. The reason this question gets searched is simple: it is usually attached to a private feeling people do not always say out loud.", "RareScore treats that feeling as a starting point, not a diagnosis. The goal is to give you a structured way to test one slice of your thinking, values, or rarity."] },
+      { heading: "A useful way to think about it", body: ["Research such as Swann, 2012, Festinger, 1954 helps explain why people care about scores, labels, ability, morality, and uniqueness. People compare themselves, defend their self-image, and look for feedback that feels specific.", "That is why a strong quiz result does not need to shout. It works when it gives language to something the reader already suspected."] },
+      { heading: "What your answer may reveal", body: ["A useful result should feel personal without pretending to know everything about you. It should point to a pattern: how quickly you notice structure, which values win under pressure, or how often your instincts break from the crowd.", "The strongest results are specific enough to recognize and flexible enough to think about. They should make you pause for a second and ask whether the description fits."] },
+      { heading: "Make the result worth saving", body: ["The next step is not to overthink it. Take the related RareScore test at /certificate, get the free result, and then decide whether the full analysis or certificate is worth saving.", "If the result feels accurate, it becomes a mirror. If it surprises you, it becomes a conversation."] }
+    ],
+    faqs: [
+      { question: "What does why certificates make results feel official mean?", answer: "A certificate turns a temporary screen into a saved object. That small shift changes how the result feels." },
+      { question: "Is the related RareScore test free?", answer: "Yes. The first attempt is free. Certificates, full analysis reports, printed options, framed options, and Fresh Question Sets are optional after the result." },
+      { question: "Can I save my result?", answer: "Yes. After the result, you can unlock a digital certificate and full analysis, or choose printed and framed certificate options." }
+    ],
+    references: [
+      { label: "Swann, 2012", title: "Self-Verification Theory", url: "https://labs.la.utexas.edu/swann/files/2016/02/svt-lange-et-al.pdf", note: "Explains why people seek feedback that confirms their self-view." },
+      { label: "Festinger, 1954", title: "A Theory of Social Comparison Processes", url: "https://journals.sagepub.com/doi/10.1177/001872675400700202", note: "Foundational social comparison theory." }
+    ],
+  },
+  {
+    slug: "why-people-challenge-friends-after-score", title: "Why People Challenge Friends After Getting a Score", description: "A score creates a comparison loop. Once you know your number, the next question is who else can beat it.", date: "2026-05-21", readTime: "9 min read", category: "Sharing", keywords: ["challenge friends quiz", "share score with friends", "social comparison"], ctaLabel: "Share RareScore", ctaHref: "/share", image: "/blog-images/why-people-challenge-friends-after-score.svg", imageAlt: "Premium editorial visual for Why People Challenge Friends After Getting a Score", intro: "A score creates a comparison loop. Once you know your number, the next question is who else can beat it. This article explains the idea in a practical way and points you toward a result you can test for yourself.",
+    sections: [
+      { heading: "Why people search this", body: ["A score creates a comparison loop. Once you know your number, the next question is who else can beat it. The reason this question gets searched is simple: it is usually attached to a private feeling people do not always say out loud.", "RareScore treats that feeling as a starting point, not a diagnosis. The goal is to give you a structured way to test one slice of your thinking, values, or rarity."] },
+      { heading: "The psychology in plain English", body: ["Research such as Festinger, 1954, Zell et al., 2020 helps explain why people care about scores, labels, ability, morality, and uniqueness. People compare themselves, defend their self-image, and look for feedback that feels specific.", "That is why a strong quiz result does not need to shout. It works when it gives language to something the reader already suspected."] },
+      { heading: "A quick self-check", body: ["A useful result should feel personal without pretending to know everything about you. It should point to a pattern: how quickly you notice structure, which values win under pressure, or how often your instincts break from the crowd.", "The strongest results are specific enough to recognize and flexible enough to think about. They should make you pause for a second and ask whether the description fits."] },
+      { heading: "Where to go next", body: ["The next step is not to overthink it. Take the related RareScore test at /share, get the free result, and then decide whether the full analysis or certificate is worth saving.", "If the result feels accurate, it becomes a mirror. If it surprises you, it becomes a conversation."] }
+    ],
+    faqs: [
+      { question: "What does why people challenge friends after getting a score mean?", answer: "A score creates a comparison loop. Once you know your number, the next question is who else can beat it." },
+      { question: "Is the related RareScore test free?", answer: "Yes. The first attempt is free. Certificates, full analysis reports, printed options, framed options, and Fresh Question Sets are optional after the result." },
+      { question: "Can I save my result?", answer: "Yes. After the result, you can unlock a digital certificate and full analysis, or choose printed and framed certificate options." }
+    ],
+    references: [
+      { label: "Festinger, 1954", title: "A Theory of Social Comparison Processes", url: "https://journals.sagepub.com/doi/10.1177/001872675400700202", note: "Foundational social comparison theory." },
+      { label: "Zell et al., 2020", title: "The Better-Than-Average Effect in Comparative Self-Evaluation", url: "https://pubmed.ncbi.nlm.nih.gov/31789535/", note: "Meta-analysis of how people compare themselves to others." }
+    ],
+  },
+  {
+    slug: "truth-kindness-morality-psychology", title: "Truth vs Kindness: The Morality Question Everyone Answers Differently", description: "Most people value both truth and kindness. The moral tension starts when you cannot protect both at once.", date: "2026-05-21", readTime: "18 min read", category: "Morality Test", keywords: ["truth vs kindness", "moral dilemma", "morality question"], ctaLabel: "Answer Moral Questions", ctaHref: "/morality-test", image: "/blog-images/truth-kindness-morality-psychology.svg", imageAlt: "Premium editorial visual for Truth vs Kindness: The Morality Question Everyone Answers Differently", intro: "Most people value both truth and kindness. The moral tension starts when you cannot protect both at once. This article explains the idea in a practical way and points you toward a result you can test for yourself.",
+    sections: [
+      { heading: "What the pattern looks like", body: ["Most people value both truth and kindness. The moral tension starts when you cannot protect both at once. The reason this question gets searched is simple: it is usually attached to a private feeling people do not always say out loud.", "RareScore treats that feeling as a starting point, not a diagnosis. The goal is to give you a structured way to test one slice of your thinking, values, or rarity."] },
+      { heading: "Why it feels personal", body: ["Research such as Graham et al., 2013 helps explain why people care about scores, labels, ability, morality, and uniqueness. People compare themselves, defend their self-image, and look for feedback that feels specific.", "That is why a strong quiz result does not need to shout. It works when it gives language to something the reader already suspected."] },
+      { heading: "A better interpretation", body: ["A useful result should feel personal without pretending to know everything about you. It should point to a pattern: how quickly you notice structure, which values win under pressure, or how often your instincts break from the crowd.", "The strongest results are specific enough to recognize and flexible enough to think about. They should make you pause for a second and ask whether the description fits."] },
+      { heading: "Take the next step", body: ["The next step is not to overthink it. Take the related RareScore test at /morality-test, get the free result, and then decide whether the full analysis or certificate is worth saving.", "If the result feels accurate, it becomes a mirror. If it surprises you, it becomes a conversation."] }
+    ],
+    faqs: [
+      { question: "What does truth vs kindness mean?", answer: "Most people value both truth and kindness. The moral tension starts when you cannot protect both at once." },
+      { question: "Is the related RareScore test free?", answer: "Yes. The first attempt is free. Certificates, full analysis reports, printed options, framed options, and Fresh Question Sets are optional after the result." },
+      { question: "Can I save my result?", answer: "Yes. After the result, you can unlock a digital certificate and full analysis, or choose printed and framed certificate options." }
+    ],
+    references: [
+      { label: "Graham et al., 2013", title: "Moral Foundations Theory", url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2184440", note: "Framework for care, fairness, loyalty, authority, sanctity, and liberty." }
+    ],
+  },
+  {
+    slug: "why-do-i-feel-smarter-than-everyone", title: "Why Do I Feel Smarter Than Everyone Around Me?", description: "A direct look at mental speed, comparison, impatience, and the private suspicion that you process the world differently.", date: "2026-05-21", readTime: "18 min read", category: "IQ Test", keywords: ["why do I feel smarter than everyone", "feel smarter than others", "am I smart"], ctaLabel: "Check Your IQ-Style Score", ctaHref: "/iq-test", image: "/blog-images/why-do-i-feel-smarter-than-everyone.svg", imageAlt: "Premium editorial visual for Why Do I Feel Smarter Than Everyone Around Me?", intro: "A direct look at mental speed, comparison, impatience, and the private suspicion that you process the world differently. This article explains the idea in a practical way and points you toward a result you can test for yourself.",
+    sections: [
+      { heading: "The private question behind it", body: ["A direct look at mental speed, comparison, impatience, and the private suspicion that you process the world differently. The reason this question gets searched is simple: it is usually attached to a private feeling people do not always say out loud.", "RareScore treats that feeling as a starting point, not a diagnosis. The goal is to give you a structured way to test one slice of your thinking, values, or rarity."] },
+      { heading: "What research suggests", body: ["Research such as Zell et al., 2020, Kruger & Dunning, 1999 helps explain why people care about scores, labels, ability, morality, and uniqueness. People compare themselves, defend their self-image, and look for feedback that feels specific.", "That is why a strong quiz result does not need to shout. It works when it gives language to something the reader already suspected."] },
+      { heading: "What this may mean for you", body: ["A useful result should feel personal without pretending to know everything about you. It should point to a pattern: how quickly you notice structure, which values win under pressure, or how often your instincts break from the crowd.", "The strongest results are specific enough to recognize and flexible enough to think about. They should make you pause for a second and ask whether the description fits."] },
+      { heading: "Try it against your own result", body: ["The next step is not to overthink it. Take the related RareScore test at /iq-test, get the free result, and then decide whether the full analysis or certificate is worth saving.", "If the result feels accurate, it becomes a mirror. If it surprises you, it becomes a conversation."] }
+    ],
+    faqs: [
+      { question: "What does why do i feel smarter than everyone around me? mean?", answer: "A direct look at mental speed, comparison, impatience, and the private suspicion that you process the world differently." },
+      { question: "Is the related RareScore test free?", answer: "Yes. The first attempt is free. Certificates, full analysis reports, printed options, framed options, and Fresh Question Sets are optional after the result." },
+      { question: "Can I save my result?", answer: "Yes. After the result, you can unlock a digital certificate and full analysis, or choose printed and framed certificate options." }
+    ],
+    references: [
+      { label: "Zell et al., 2020", title: "The Better-Than-Average Effect in Comparative Self-Evaluation", url: "https://pubmed.ncbi.nlm.nih.gov/31789535/", note: "Meta-analysis of how people compare themselves to others." },
+      { label: "Kruger & Dunning, 1999", title: "Unskilled and Unaware of It", url: "https://pubmed.ncbi.nlm.nih.gov/10626367/", note: "Classic paper on inaccurate self-assessment and metacognitive blind spots." }
+    ],
+  },
+  {
+    slug: "hard-to-talk-to-people-who-think-differently", title: "Why Is It Hard to Talk to People Who Do Not Think Like Me?", description: "Different thinking speeds, values, and assumptions can make simple conversations feel strangely difficult.", date: "2026-05-21", readTime: "9 min read", category: "Self Discovery", keywords: ["hard to talk to people who do not think like me", "different thinkers", "why conversations feel hard"], ctaLabel: "Find Your Test", ctaHref: "/tests", image: "/blog-images/hard-to-talk-to-people-who-think-differently.svg", imageAlt: "Premium editorial visual for Why Is It Hard to Talk to People Who Do Not Think Like Me?", intro: "Different thinking speeds, values, and assumptions can make simple conversations feel strangely difficult. This article explains the idea in a practical way and points you toward a result you can test for yourself.",
+    sections: [
+      { heading: "Common signs", body: ["Different thinking speeds, values, and assumptions can make simple conversations feel strangely difficult. The reason this question gets searched is simple: it is usually attached to a private feeling people do not always say out loud.", "RareScore treats that feeling as a starting point, not a diagnosis. The goal is to give you a structured way to test one slice of your thinking, values, or rarity."] },
+      { heading: "The mental loop underneath", body: ["Research such as Festinger, 1954, Swann, 2012 helps explain why people care about scores, labels, ability, morality, and uniqueness. People compare themselves, defend their self-image, and look for feedback that feels specific.", "That is why a strong quiz result does not need to shout. It works when it gives language to something the reader already suspected."] },
+      { heading: "Where people get it wrong", body: ["A useful result should feel personal without pretending to know everything about you. It should point to a pattern: how quickly you notice structure, which values win under pressure, or how often your instincts break from the crowd.", "The strongest results are specific enough to recognize and flexible enough to think about. They should make you pause for a second and ask whether the description fits."] },
+      { heading: "How RareScore turns it into a test", body: ["The next step is not to overthink it. Take the related RareScore test at /tests, get the free result, and then decide whether the full analysis or certificate is worth saving.", "If the result feels accurate, it becomes a mirror. If it surprises you, it becomes a conversation."] }
+    ],
+    faqs: [
+      { question: "What does why is it hard to talk to people who do not think like me? mean?", answer: "Different thinking speeds, values, and assumptions can make simple conversations feel strangely difficult." },
+      { question: "Is the related RareScore test free?", answer: "Yes. The first attempt is free. Certificates, full analysis reports, printed options, framed options, and Fresh Question Sets are optional after the result." },
+      { question: "Can I save my result?", answer: "Yes. After the result, you can unlock a digital certificate and full analysis, or choose printed and framed certificate options." }
+    ],
+    references: [
+      { label: "Festinger, 1954", title: "A Theory of Social Comparison Processes", url: "https://journals.sagepub.com/doi/10.1177/001872675400700202", note: "Foundational social comparison theory." },
+      { label: "Swann, 2012", title: "Self-Verification Theory", url: "https://labs.la.utexas.edu/swann/files/2016/02/svt-lange-et-al.pdf", note: "Explains why people seek feedback that confirms their self-view." }
+    ],
+  },
+  {
+    slug: "signs-you-are-a-pattern-thinker", title: "Signs You Might Be a Pattern Thinker", description: "Pattern thinkers notice structure early, predict what comes next, and get bored when the rule is too obvious.", date: "2026-05-21", readTime: "9 min read", category: "IQ Test", keywords: ["signs you are a pattern thinker", "pattern thinker", "pattern recognition"], ctaLabel: "Test Pattern Thinking", ctaHref: "/iq-test", image: "/blog-images/signs-you-are-a-pattern-thinker.svg", imageAlt: "Premium editorial visual for Signs You Might Be a Pattern Thinker", intro: "Pattern thinkers notice structure early, predict what comes next, and get bored when the rule is too obvious. This article explains the idea in a practical way and points you toward a result you can test for yourself.",
+    sections: [
+      { heading: "The uncomfortable part", body: ["Pattern thinkers notice structure early, predict what comes next, and get bored when the rule is too obvious. The reason this question gets searched is simple: it is usually attached to a private feeling people do not always say out loud.", "RareScore treats that feeling as a starting point, not a diagnosis. The goal is to give you a structured way to test one slice of your thinking, values, or rarity."] },
+      { heading: "A useful way to think about it", body: ["Research such as Frederick, 2005 helps explain why people care about scores, labels, ability, morality, and uniqueness. People compare themselves, defend their self-image, and look for feedback that feels specific.", "That is why a strong quiz result does not need to shout. It works when it gives language to something the reader already suspected."] },
+      { heading: "What your answer may reveal", body: ["A useful result should feel personal without pretending to know everything about you. It should point to a pattern: how quickly you notice structure, which values win under pressure, or how often your instincts break from the crowd.", "The strongest results are specific enough to recognize and flexible enough to think about. They should make you pause for a second and ask whether the description fits."] },
+      { heading: "Make the result worth saving", body: ["The next step is not to overthink it. Take the related RareScore test at /iq-test, get the free result, and then decide whether the full analysis or certificate is worth saving.", "If the result feels accurate, it becomes a mirror. If it surprises you, it becomes a conversation."] }
+    ],
+    faqs: [
+      { question: "What does signs you might be a pattern thinker mean?", answer: "Pattern thinkers notice structure early, predict what comes next, and get bored when the rule is too obvious." },
+      { question: "Is the related RareScore test free?", answer: "Yes. The first attempt is free. Certificates, full analysis reports, printed options, framed options, and Fresh Question Sets are optional after the result." },
+      { question: "Can I save my result?", answer: "Yes. After the result, you can unlock a digital certificate and full analysis, or choose printed and framed certificate options." }
+    ],
+    references: [
+      { label: "Frederick, 2005", title: "Cognitive Reflection and Decision Making", url: "https://www.aeaweb.org/articles?id=10.1257/089533005775196732", note: "Research on intuitive answers versus reflective thinking." }
+    ],
+  },
+  {
+    slug: "why-you-notice-things-others-miss", title: "Why You Notice Things Other People Miss", description: "Some people catch contradictions, mood shifts, and tiny details before anyone else realizes there was something to catch.", date: "2026-05-21", readTime: "9 min read", category: "Rarity Test", keywords: ["why you notice things others miss", "observant people", "pattern awareness"], ctaLabel: "Reveal Your RareScore", ctaHref: "/are-you-rare", image: "/blog-images/why-you-notice-things-others-miss.svg", imageAlt: "Premium editorial visual for Why You Notice Things Other People Miss", intro: "Some people catch contradictions, mood shifts, and tiny details before anyone else realizes there was something to catch. This article explains the idea in a practical way and points you toward a result you can test for yourself.",
+    sections: [
+      { heading: "Why people search this", body: ["Some people catch contradictions, mood shifts, and tiny details before anyone else realizes there was something to catch. The reason this question gets searched is simple: it is usually attached to a private feeling people do not always say out loud.", "RareScore treats that feeling as a starting point, not a diagnosis. The goal is to give you a structured way to test one slice of your thinking, values, or rarity."] },
+      { heading: "The psychology in plain English", body: ["Research such as Snyder & Fromkin, 1977, Frederick, 2005 helps explain why people care about scores, labels, ability, morality, and uniqueness. People compare themselves, defend their self-image, and look for feedback that feels specific.", "That is why a strong quiz result does not need to shout. It works when it gives language to something the reader already suspected."] },
+      { heading: "A quick self-check", body: ["A useful result should feel personal without pretending to know everything about you. It should point to a pattern: how quickly you notice structure, which values win under pressure, or how often your instincts break from the crowd.", "The strongest results are specific enough to recognize and flexible enough to think about. They should make you pause for a second and ask whether the description fits."] },
+      { heading: "Where to go next", body: ["The next step is not to overthink it. Take the related RareScore test at /are-you-rare, get the free result, and then decide whether the full analysis or certificate is worth saving.", "If the result feels accurate, it becomes a mirror. If it surprises you, it becomes a conversation."] }
+    ],
+    faqs: [
+      { question: "What does why you notice things other people miss mean?", answer: "Some people catch contradictions, mood shifts, and tiny details before anyone else realizes there was something to catch." },
+      { question: "Is the related RareScore test free?", answer: "Yes. The first attempt is free. Certificates, full analysis reports, printed options, framed options, and Fresh Question Sets are optional after the result." },
+      { question: "Can I save my result?", answer: "Yes. After the result, you can unlock a digital certificate and full analysis, or choose printed and framed certificate options." }
+    ],
+    references: [
+      { label: "Snyder & Fromkin, 1977", title: "Need for Uniqueness", url: "https://sjdm.org/dmidi/Need_for_Uniqueness.html", note: "Classic research on the desire to feel distinct from others." },
+      { label: "Frederick, 2005", title: "Cognitive Reflection and Decision Making", url: "https://www.aeaweb.org/articles?id=10.1257/089533005775196732", note: "Research on intuitive answers versus reflective thinking." }
+    ],
+  },
+  {
+    slug: "are-you-actually-rare-or-just-different", title: "Are You Actually Rare or Just Different?", description: "Being different is easy to claim. Being rare means your choices form an uncommon pattern over and over.", date: "2026-05-21", readTime: "9 min read", category: "Rarity Test", keywords: ["am I rare", "rare or different", "are you rare"], ctaLabel: "Take the Rare Test", ctaHref: "/are-you-rare", image: "/blog-images/are-you-actually-rare-or-just-different.svg", imageAlt: "Premium editorial visual for Are You Actually Rare or Just Different?", intro: "Being different is easy to claim. Being rare means your choices form an uncommon pattern over and over. This article explains the idea in a practical way and points you toward a result you can test for yourself.",
+    sections: [
+      { heading: "What the pattern looks like", body: ["Being different is easy to claim. Being rare means your choices form an uncommon pattern over and over. The reason this question gets searched is simple: it is usually attached to a private feeling people do not always say out loud.", "RareScore treats that feeling as a starting point, not a diagnosis. The goal is to give you a structured way to test one slice of your thinking, values, or rarity."] },
+      { heading: "Why it feels personal", body: ["Research such as Snyder & Fromkin, 1977 helps explain why people care about scores, labels, ability, morality, and uniqueness. People compare themselves, defend their self-image, and look for feedback that feels specific.", "That is why a strong quiz result does not need to shout. It works when it gives language to something the reader already suspected."] },
+      { heading: "A better interpretation", body: ["A useful result should feel personal without pretending to know everything about you. It should point to a pattern: how quickly you notice structure, which values win under pressure, or how often your instincts break from the crowd.", "The strongest results are specific enough to recognize and flexible enough to think about. They should make you pause for a second and ask whether the description fits."] },
+      { heading: "Take the next step", body: ["The next step is not to overthink it. Take the related RareScore test at /are-you-rare, get the free result, and then decide whether the full analysis or certificate is worth saving.", "If the result feels accurate, it becomes a mirror. If it surprises you, it becomes a conversation."] }
+    ],
+    faqs: [
+      { question: "What does are you actually rare or just different? mean?", answer: "Being different is easy to claim. Being rare means your choices form an uncommon pattern over and over." },
+      { question: "Is the related RareScore test free?", answer: "Yes. The first attempt is free. Certificates, full analysis reports, printed options, framed options, and Fresh Question Sets are optional after the result." },
+      { question: "Can I save my result?", answer: "Yes. After the result, you can unlock a digital certificate and full analysis, or choose printed and framed certificate options." }
+    ],
+    references: [
+      { label: "Snyder & Fromkin, 1977", title: "Need for Uniqueness", url: "https://sjdm.org/dmidi/Need_for_Uniqueness.html", note: "Classic research on the desire to feel distinct from others." }
+    ],
+  },
+  {
+    slug: "why-you-feel-like-you-do-not-fit-in", title: "Why You Feel Like You Do Not Fit In", description: "Not fitting in can come from values, speed, taste, sensitivity, or simply seeing the room from a different angle.", date: "2026-05-21", readTime: "9 min read", category: "Self Discovery", keywords: ["why do I feel like I do not fit in", "feel different", "self discovery"], ctaLabel: "Find Your RareScore", ctaHref: "/are-you-rare", image: "/blog-images/why-you-feel-like-you-do-not-fit-in.svg", imageAlt: "Premium editorial visual for Why You Feel Like You Do Not Fit In", intro: "Not fitting in can come from values, speed, taste, sensitivity, or simply seeing the room from a different angle. This article explains the idea in a practical way and points you toward a result you can test for yourself.",
+    sections: [
+      { heading: "The private question behind it", body: ["Not fitting in can come from values, speed, taste, sensitivity, or simply seeing the room from a different angle. The reason this question gets searched is simple: it is usually attached to a private feeling people do not always say out loud.", "RareScore treats that feeling as a starting point, not a diagnosis. The goal is to give you a structured way to test one slice of your thinking, values, or rarity."] },
+      { heading: "What research suggests", body: ["Research such as Swann, 2012, Festinger, 1954 helps explain why people care about scores, labels, ability, morality, and uniqueness. People compare themselves, defend their self-image, and look for feedback that feels specific.", "That is why a strong quiz result does not need to shout. It works when it gives language to something the reader already suspected."] },
+      { heading: "What this may mean for you", body: ["A useful result should feel personal without pretending to know everything about you. It should point to a pattern: how quickly you notice structure, which values win under pressure, or how often your instincts break from the crowd.", "The strongest results are specific enough to recognize and flexible enough to think about. They should make you pause for a second and ask whether the description fits."] },
+      { heading: "Try it against your own result", body: ["The next step is not to overthink it. Take the related RareScore test at /are-you-rare, get the free result, and then decide whether the full analysis or certificate is worth saving.", "If the result feels accurate, it becomes a mirror. If it surprises you, it becomes a conversation."] }
+    ],
+    faqs: [
+      { question: "What does why you feel like you do not fit in mean?", answer: "Not fitting in can come from values, speed, taste, sensitivity, or simply seeing the room from a different angle." },
+      { question: "Is the related RareScore test free?", answer: "Yes. The first attempt is free. Certificates, full analysis reports, printed options, framed options, and Fresh Question Sets are optional after the result." },
+      { question: "Can I save my result?", answer: "Yes. After the result, you can unlock a digital certificate and full analysis, or choose printed and framed certificate options." }
+    ],
+    references: [
+      { label: "Swann, 2012", title: "Self-Verification Theory", url: "https://labs.la.utexas.edu/swann/files/2016/02/svt-lange-et-al.pdf", note: "Explains why people seek feedback that confirms their self-view." },
+      { label: "Festinger, 1954", title: "A Theory of Social Comparison Processes", url: "https://journals.sagepub.com/doi/10.1177/001872675400700202", note: "Foundational social comparison theory." }
+    ],
+  },
+  {
+    slug: "why-intelligent-people-get-bored-easily", title: "Why Intelligent People Get Bored Easily", description: "When your mind finds the pattern early, repetition starts to feel like being trapped in a conversation that already ended.", date: "2026-05-21", readTime: "9 min read", category: "IQ Test", keywords: ["why intelligent people get bored easily", "smart people bored", "high intelligence boredom"], ctaLabel: "Test Your Mind", ctaHref: "/iq-test", image: "/blog-images/why-intelligent-people-get-bored-easily.svg", imageAlt: "Premium editorial visual for Why Intelligent People Get Bored Easily", intro: "When your mind finds the pattern early, repetition starts to feel like being trapped in a conversation that already ended. This article explains the idea in a practical way and points you toward a result you can test for yourself.",
+    sections: [
+      { heading: "Common signs", body: ["When your mind finds the pattern early, repetition starts to feel like being trapped in a conversation that already ended. The reason this question gets searched is simple: it is usually attached to a private feeling people do not always say out loud.", "RareScore treats that feeling as a starting point, not a diagnosis. The goal is to give you a structured way to test one slice of your thinking, values, or rarity."] },
+      { heading: "The mental loop underneath", body: ["Research such as Frederick, 2005 helps explain why people care about scores, labels, ability, morality, and uniqueness. People compare themselves, defend their self-image, and look for feedback that feels specific.", "That is why a strong quiz result does not need to shout. It works when it gives language to something the reader already suspected."] },
+      { heading: "Where people get it wrong", body: ["A useful result should feel personal without pretending to know everything about you. It should point to a pattern: how quickly you notice structure, which values win under pressure, or how often your instincts break from the crowd.", "The strongest results are specific enough to recognize and flexible enough to think about. They should make you pause for a second and ask whether the description fits."] },
+      { heading: "How RareScore turns it into a test", body: ["The next step is not to overthink it. Take the related RareScore test at /iq-test, get the free result, and then decide whether the full analysis or certificate is worth saving.", "If the result feels accurate, it becomes a mirror. If it surprises you, it becomes a conversation."] }
+    ],
+    faqs: [
+      { question: "What does why intelligent people get bored easily mean?", answer: "When your mind finds the pattern early, repetition starts to feel like being trapped in a conversation that already ended." },
+      { question: "Is the related RareScore test free?", answer: "Yes. The first attempt is free. Certificates, full analysis reports, printed options, framed options, and Fresh Question Sets are optional after the result." },
+      { question: "Can I save my result?", answer: "Yes. After the result, you can unlock a digital certificate and full analysis, or choose printed and framed certificate options." }
+    ],
+    references: [
+      { label: "Frederick, 2005", title: "Cognitive Reflection and Decision Making", url: "https://www.aeaweb.org/articles?id=10.1257/089533005775196732", note: "Research on intuitive answers versus reflective thinking." }
+    ],
+  },
+  {
+    slug: "why-some-people-need-proof-they-are-different", title: "Why Some People Need Proof They Are Different", description: "Some results matter because they put words around something you already suspected but could not show.", date: "2026-05-21", readTime: "9 min read", category: "Certificates", keywords: ["need proof I am different", "prove I am unique", "certificate psychology"], ctaLabel: "Make It Official", ctaHref: "/certificate", image: "/blog-images/why-some-people-need-proof-they-are-different.svg", imageAlt: "Premium editorial visual for Why Some People Need Proof They Are Different", intro: "Some results matter because they put words around something you already suspected but could not show. This article explains the idea in a practical way and points you toward a result you can test for yourself.",
+    sections: [
+      { heading: "The uncomfortable part", body: ["Some results matter because they put words around something you already suspected but could not show. The reason this question gets searched is simple: it is usually attached to a private feeling people do not always say out loud.", "RareScore treats that feeling as a starting point, not a diagnosis. The goal is to give you a structured way to test one slice of your thinking, values, or rarity."] },
+      { heading: "A useful way to think about it", body: ["Research such as Swann, 2012, Snyder & Fromkin, 1977 helps explain why people care about scores, labels, ability, morality, and uniqueness. People compare themselves, defend their self-image, and look for feedback that feels specific.", "That is why a strong quiz result does not need to shout. It works when it gives language to something the reader already suspected."] },
+      { heading: "What your answer may reveal", body: ["A useful result should feel personal without pretending to know everything about you. It should point to a pattern: how quickly you notice structure, which values win under pressure, or how often your instincts break from the crowd.", "The strongest results are specific enough to recognize and flexible enough to think about. They should make you pause for a second and ask whether the description fits."] },
+      { heading: "Make the result worth saving", body: ["The next step is not to overthink it. Take the related RareScore test at /certificate, get the free result, and then decide whether the full analysis or certificate is worth saving.", "If the result feels accurate, it becomes a mirror. If it surprises you, it becomes a conversation."] }
+    ],
+    faqs: [
+      { question: "What does why some people need proof they are different mean?", answer: "Some results matter because they put words around something you already suspected but could not show." },
+      { question: "Is the related RareScore test free?", answer: "Yes. The first attempt is free. Certificates, full analysis reports, printed options, framed options, and Fresh Question Sets are optional after the result." },
+      { question: "Can I save my result?", answer: "Yes. After the result, you can unlock a digital certificate and full analysis, or choose printed and framed certificate options." }
+    ],
+    references: [
+      { label: "Swann, 2012", title: "Self-Verification Theory", url: "https://labs.la.utexas.edu/swann/files/2016/02/svt-lange-et-al.pdf", note: "Explains why people seek feedback that confirms their self-view." },
+      { label: "Snyder & Fromkin, 1977", title: "Need for Uniqueness", url: "https://sjdm.org/dmidi/Need_for_Uniqueness.html", note: "Classic research on the desire to feel distinct from others." }
+    ],
+  },
+  {
+    slug: "what-your-first-instinct-says-about-you", title: "What Your First Instinct Says About You", description: "Your first answer can reveal what your attention protects before logic edits the response.", date: "2026-05-21", readTime: "9 min read", category: "Rarity Test", keywords: ["what your first instinct says about you", "instinct test", "personality instinct"], ctaLabel: "Answer Instinct Questions", ctaHref: "/are-you-rare", image: "/blog-images/what-your-first-instinct-says-about-you.svg", imageAlt: "Premium editorial visual for What Your First Instinct Says About You", intro: "Your first answer can reveal what your attention protects before logic edits the response. This article explains the idea in a practical way and points you toward a result you can test for yourself.",
+    sections: [
+      { heading: "Why people search this", body: ["Your first answer can reveal what your attention protects before logic edits the response. The reason this question gets searched is simple: it is usually attached to a private feeling people do not always say out loud.", "RareScore treats that feeling as a starting point, not a diagnosis. The goal is to give you a structured way to test one slice of your thinking, values, or rarity."] },
+      { heading: "The psychology in plain English", body: ["Research such as Frederick, 2005, Swann, 2012 helps explain why people care about scores, labels, ability, morality, and uniqueness. People compare themselves, defend their self-image, and look for feedback that feels specific.", "That is why a strong quiz result does not need to shout. It works when it gives language to something the reader already suspected."] },
+      { heading: "A quick self-check", body: ["A useful result should feel personal without pretending to know everything about you. It should point to a pattern: how quickly you notice structure, which values win under pressure, or how often your instincts break from the crowd.", "The strongest results are specific enough to recognize and flexible enough to think about. They should make you pause for a second and ask whether the description fits."] },
+      { heading: "Where to go next", body: ["The next step is not to overthink it. Take the related RareScore test at /are-you-rare, get the free result, and then decide whether the full analysis or certificate is worth saving.", "If the result feels accurate, it becomes a mirror. If it surprises you, it becomes a conversation."] }
+    ],
+    faqs: [
+      { question: "What does what your first instinct says about you mean?", answer: "Your first answer can reveal what your attention protects before logic edits the response." },
+      { question: "Is the related RareScore test free?", answer: "Yes. The first attempt is free. Certificates, full analysis reports, printed options, framed options, and Fresh Question Sets are optional after the result." },
+      { question: "Can I save my result?", answer: "Yes. After the result, you can unlock a digital certificate and full analysis, or choose printed and framed certificate options." }
+    ],
+    references: [
+      { label: "Frederick, 2005", title: "Cognitive Reflection and Decision Making", url: "https://www.aeaweb.org/articles?id=10.1257/089533005775196732", note: "Research on intuitive answers versus reflective thinking." },
+      { label: "Swann, 2012", title: "Self-Verification Theory", url: "https://labs.la.utexas.edu/swann/files/2016/02/svt-lange-et-al.pdf", note: "Explains why people seek feedback that confirms their self-view." }
+    ],
+  },
+  {
+    slug: "why-people-underestimate-quiet-thinkers", title: "Why People Underestimate Quiet Thinkers", description: "Quiet thinkers often reveal their intelligence late because their processing happens before their performance.", date: "2026-05-21", readTime: "9 min read", category: "IQ Test", keywords: ["quiet thinker", "why people underestimate quiet people", "smart quiet people"], ctaLabel: "See Your Score", ctaHref: "/iq-test", image: "/blog-images/why-people-underestimate-quiet-thinkers.svg", imageAlt: "Premium editorial visual for Why People Underestimate Quiet Thinkers", intro: "Quiet thinkers often reveal their intelligence late because their processing happens before their performance. This article explains the idea in a practical way and points you toward a result you can test for yourself.",
+    sections: [
+      { heading: "What the pattern looks like", body: ["Quiet thinkers often reveal their intelligence late because their processing happens before their performance. The reason this question gets searched is simple: it is usually attached to a private feeling people do not always say out loud.", "RareScore treats that feeling as a starting point, not a diagnosis. The goal is to give you a structured way to test one slice of your thinking, values, or rarity."] },
+      { heading: "Why it feels personal", body: ["Research such as Swann, 2012 helps explain why people care about scores, labels, ability, morality, and uniqueness. People compare themselves, defend their self-image, and look for feedback that feels specific.", "That is why a strong quiz result does not need to shout. It works when it gives language to something the reader already suspected."] },
+      { heading: "A better interpretation", body: ["A useful result should feel personal without pretending to know everything about you. It should point to a pattern: how quickly you notice structure, which values win under pressure, or how often your instincts break from the crowd.", "The strongest results are specific enough to recognize and flexible enough to think about. They should make you pause for a second and ask whether the description fits."] },
+      { heading: "Take the next step", body: ["The next step is not to overthink it. Take the related RareScore test at /iq-test, get the free result, and then decide whether the full analysis or certificate is worth saving.", "If the result feels accurate, it becomes a mirror. If it surprises you, it becomes a conversation."] }
+    ],
+    faqs: [
+      { question: "What does why people underestimate quiet thinkers mean?", answer: "Quiet thinkers often reveal their intelligence late because their processing happens before their performance." },
+      { question: "Is the related RareScore test free?", answer: "Yes. The first attempt is free. Certificates, full analysis reports, printed options, framed options, and Fresh Question Sets are optional after the result." },
+      { question: "Can I save my result?", answer: "Yes. After the result, you can unlock a digital certificate and full analysis, or choose printed and framed certificate options." }
+    ],
+    references: [
+      { label: "Swann, 2012", title: "Self-Verification Theory", url: "https://labs.la.utexas.edu/swann/files/2016/02/svt-lange-et-al.pdf", note: "Explains why people seek feedback that confirms their self-view." }
+    ],
+  },
+  {
+    slug: "why-you-feel-mentally-older-than-your-age", title: "Why You Feel Mentally Older Than Your Age", description: "Some people feel older because they observe patterns, consequences, and motives earlier than expected.", date: "2026-05-21", readTime: "9 min read", category: "Self Discovery", keywords: ["mentally older than my age", "old soul test", "feel older than age"], ctaLabel: "Check Your Rarity", ctaHref: "/are-you-rare", image: "/blog-images/why-you-feel-mentally-older-than-your-age.svg", imageAlt: "Premium editorial visual for Why You Feel Mentally Older Than Your Age", intro: "Some people feel older because they observe patterns, consequences, and motives earlier than expected. This article explains the idea in a practical way and points you toward a result you can test for yourself.",
+    sections: [
+      { heading: "The private question behind it", body: ["Some people feel older because they observe patterns, consequences, and motives earlier than expected. The reason this question gets searched is simple: it is usually attached to a private feeling people do not always say out loud.", "RareScore treats that feeling as a starting point, not a diagnosis. The goal is to give you a structured way to test one slice of your thinking, values, or rarity."] },
+      { heading: "What research suggests", body: ["Research such as Swann, 2012, Snyder & Fromkin, 1977 helps explain why people care about scores, labels, ability, morality, and uniqueness. People compare themselves, defend their self-image, and look for feedback that feels specific.", "That is why a strong quiz result does not need to shout. It works when it gives language to something the reader already suspected."] },
+      { heading: "What this may mean for you", body: ["A useful result should feel personal without pretending to know everything about you. It should point to a pattern: how quickly you notice structure, which values win under pressure, or how often your instincts break from the crowd.", "The strongest results are specific enough to recognize and flexible enough to think about. They should make you pause for a second and ask whether the description fits."] },
+      { heading: "Try it against your own result", body: ["The next step is not to overthink it. Take the related RareScore test at /are-you-rare, get the free result, and then decide whether the full analysis or certificate is worth saving.", "If the result feels accurate, it becomes a mirror. If it surprises you, it becomes a conversation."] }
+    ],
+    faqs: [
+      { question: "What does why you feel mentally older than your age mean?", answer: "Some people feel older because they observe patterns, consequences, and motives earlier than expected." },
+      { question: "Is the related RareScore test free?", answer: "Yes. The first attempt is free. Certificates, full analysis reports, printed options, framed options, and Fresh Question Sets are optional after the result." },
+      { question: "Can I save my result?", answer: "Yes. After the result, you can unlock a digital certificate and full analysis, or choose printed and framed certificate options." }
+    ],
+    references: [
+      { label: "Swann, 2012", title: "Self-Verification Theory", url: "https://labs.la.utexas.edu/swann/files/2016/02/svt-lange-et-al.pdf", note: "Explains why people seek feedback that confirms their self-view." },
+      { label: "Snyder & Fromkin, 1977", title: "Need for Uniqueness", url: "https://sjdm.org/dmidi/Need_for_Uniqueness.html", note: "Classic research on the desire to feel distinct from others." }
+    ],
+  },
+  {
+    slug: "why-you-hate-predictable-conversations", title: "Why You Hate Predictable Conversations", description: "Predictable conversations feel slow when your brain has already guessed the next five lines.", date: "2026-05-21", readTime: "9 min read", category: "Rarity Test", keywords: ["hate predictable conversations", "bored by small talk", "need novelty"], ctaLabel: "Take the Rare Test", ctaHref: "/are-you-rare", image: "/blog-images/why-you-hate-predictable-conversations.svg", imageAlt: "Premium editorial visual for Why You Hate Predictable Conversations", intro: "Predictable conversations feel slow when your brain has already guessed the next five lines. This article explains the idea in a practical way and points you toward a result you can test for yourself.",
+    sections: [
+      { heading: "Common signs", body: ["Predictable conversations feel slow when your brain has already guessed the next five lines. The reason this question gets searched is simple: it is usually attached to a private feeling people do not always say out loud.", "RareScore treats that feeling as a starting point, not a diagnosis. The goal is to give you a structured way to test one slice of your thinking, values, or rarity."] },
+      { heading: "The mental loop underneath", body: ["Research such as Snyder & Fromkin, 1977 helps explain why people care about scores, labels, ability, morality, and uniqueness. People compare themselves, defend their self-image, and look for feedback that feels specific.", "That is why a strong quiz result does not need to shout. It works when it gives language to something the reader already suspected."] },
+      { heading: "Where people get it wrong", body: ["A useful result should feel personal without pretending to know everything about you. It should point to a pattern: how quickly you notice structure, which values win under pressure, or how often your instincts break from the crowd.", "The strongest results are specific enough to recognize and flexible enough to think about. They should make you pause for a second and ask whether the description fits."] },
+      { heading: "How RareScore turns it into a test", body: ["The next step is not to overthink it. Take the related RareScore test at /are-you-rare, get the free result, and then decide whether the full analysis or certificate is worth saving.", "If the result feels accurate, it becomes a mirror. If it surprises you, it becomes a conversation."] }
+    ],
+    faqs: [
+      { question: "What does why you hate predictable conversations mean?", answer: "Predictable conversations feel slow when your brain has already guessed the next five lines." },
+      { question: "Is the related RareScore test free?", answer: "Yes. The first attempt is free. Certificates, full analysis reports, printed options, framed options, and Fresh Question Sets are optional after the result." },
+      { question: "Can I save my result?", answer: "Yes. After the result, you can unlock a digital certificate and full analysis, or choose printed and framed certificate options." }
+    ],
+    references: [
+      { label: "Snyder & Fromkin, 1977", title: "Need for Uniqueness", url: "https://sjdm.org/dmidi/Need_for_Uniqueness.html", note: "Classic research on the desire to feel distinct from others." }
+    ],
+  },
+  {
+    slug: "why-you-see-patterns-before-others", title: "Why You See Patterns Before Other People Do", description: "Seeing patterns early is not magic. It is attention, memory, and rule-finding working together quickly.", date: "2026-05-21", readTime: "9 min read", category: "IQ Test", keywords: ["see patterns before others", "pattern recognition intelligence", "visual reasoning"], ctaLabel: "Test Pattern Speed", ctaHref: "/iq-test", image: "/blog-images/why-you-see-patterns-before-others.svg", imageAlt: "Premium editorial visual for Why You See Patterns Before Other People Do", intro: "Seeing patterns early is not magic. It is attention, memory, and rule-finding working together quickly. This article explains the idea in a practical way and points you toward a result you can test for yourself.",
+    sections: [
+      { heading: "The uncomfortable part", body: ["Seeing patterns early is not magic. It is attention, memory, and rule-finding working together quickly. The reason this question gets searched is simple: it is usually attached to a private feeling people do not always say out loud.", "RareScore treats that feeling as a starting point, not a diagnosis. The goal is to give you a structured way to test one slice of your thinking, values, or rarity."] },
+      { heading: "A useful way to think about it", body: ["Research such as Frederick, 2005 helps explain why people care about scores, labels, ability, morality, and uniqueness. People compare themselves, defend their self-image, and look for feedback that feels specific.", "That is why a strong quiz result does not need to shout. It works when it gives language to something the reader already suspected."] },
+      { heading: "What your answer may reveal", body: ["A useful result should feel personal without pretending to know everything about you. It should point to a pattern: how quickly you notice structure, which values win under pressure, or how often your instincts break from the crowd.", "The strongest results are specific enough to recognize and flexible enough to think about. They should make you pause for a second and ask whether the description fits."] },
+      { heading: "Make the result worth saving", body: ["The next step is not to overthink it. Take the related RareScore test at /iq-test, get the free result, and then decide whether the full analysis or certificate is worth saving.", "If the result feels accurate, it becomes a mirror. If it surprises you, it becomes a conversation."] }
+    ],
+    faqs: [
+      { question: "What does why you see patterns before other people do mean?", answer: "Seeing patterns early is not magic. It is attention, memory, and rule-finding working together quickly." },
+      { question: "Is the related RareScore test free?", answer: "Yes. The first attempt is free. Certificates, full analysis reports, printed options, framed options, and Fresh Question Sets are optional after the result." },
+      { question: "Can I save my result?", answer: "Yes. After the result, you can unlock a digital certificate and full analysis, or choose printed and framed certificate options." }
+    ],
+    references: [
+      { label: "Frederick, 2005", title: "Cognitive Reflection and Decision Making", url: "https://www.aeaweb.org/articles?id=10.1257/089533005775196732", note: "Research on intuitive answers versus reflective thinking." }
+    ],
+  },
+  {
+    slug: "why-being-misunderstood-feels-frustrating", title: "Why Being Misunderstood Feels So Frustrating", description: "Being misunderstood is irritating because it does not only challenge your words. It challenges your self-image.", date: "2026-05-21", readTime: "9 min read", category: "Psychology", keywords: ["why being misunderstood feels frustrating", "misunderstood psychology", "self verification"], ctaLabel: "Reveal Your Style", ctaHref: "/are-you-rare", image: "/blog-images/why-being-misunderstood-feels-frustrating.svg", imageAlt: "Premium editorial visual for Why Being Misunderstood Feels So Frustrating", intro: "Being misunderstood is irritating because it does not only challenge your words. It challenges your self-image. This article explains the idea in a practical way and points you toward a result you can test for yourself.",
+    sections: [
+      { heading: "Why people search this", body: ["Being misunderstood is irritating because it does not only challenge your words. It challenges your self-image. The reason this question gets searched is simple: it is usually attached to a private feeling people do not always say out loud.", "RareScore treats that feeling as a starting point, not a diagnosis. The goal is to give you a structured way to test one slice of your thinking, values, or rarity."] },
+      { heading: "The psychology in plain English", body: ["Research such as Swann, 2012 helps explain why people care about scores, labels, ability, morality, and uniqueness. People compare themselves, defend their self-image, and look for feedback that feels specific.", "That is why a strong quiz result does not need to shout. It works when it gives language to something the reader already suspected."] },
+      { heading: "A quick self-check", body: ["A useful result should feel personal without pretending to know everything about you. It should point to a pattern: how quickly you notice structure, which values win under pressure, or how often your instincts break from the crowd.", "The strongest results are specific enough to recognize and flexible enough to think about. They should make you pause for a second and ask whether the description fits."] },
+      { heading: "Where to go next", body: ["The next step is not to overthink it. Take the related RareScore test at /are-you-rare, get the free result, and then decide whether the full analysis or certificate is worth saving.", "If the result feels accurate, it becomes a mirror. If it surprises you, it becomes a conversation."] }
+    ],
+    faqs: [
+      { question: "What does why being misunderstood feels so frustrating mean?", answer: "Being misunderstood is irritating because it does not only challenge your words. It challenges your self-image." },
+      { question: "Is the related RareScore test free?", answer: "Yes. The first attempt is free. Certificates, full analysis reports, printed options, framed options, and Fresh Question Sets are optional after the result." },
+      { question: "Can I save my result?", answer: "Yes. After the result, you can unlock a digital certificate and full analysis, or choose printed and framed certificate options." }
+    ],
+    references: [
+      { label: "Swann, 2012", title: "Self-Verification Theory", url: "https://labs.la.utexas.edu/swann/files/2016/02/svt-lange-et-al.pdf", note: "Explains why people seek feedback that confirms their self-view." }
+    ],
+  },
+  {
+    slug: "why-you-want-your-score-to-be-official", title: "Why You Want Your Score to Be Official", description: "A result can feel interesting. An official-looking result feels saved, shareable, and harder to dismiss.", date: "2026-05-21", readTime: "9 min read", category: "Certificates", keywords: ["official score certificate", "make score official", "digital certificate"], ctaLabel: "Make Your Score Official", ctaHref: "/certificate", image: "/blog-images/why-you-want-your-score-to-be-official.svg", imageAlt: "Premium editorial visual for Why You Want Your Score to Be Official", intro: "A result can feel interesting. An official-looking result feels saved, shareable, and harder to dismiss. This article explains the idea in a practical way and points you toward a result you can test for yourself.",
+    sections: [
+      { heading: "What the pattern looks like", body: ["A result can feel interesting. An official-looking result feels saved, shareable, and harder to dismiss. The reason this question gets searched is simple: it is usually attached to a private feeling people do not always say out loud.", "RareScore treats that feeling as a starting point, not a diagnosis. The goal is to give you a structured way to test one slice of your thinking, values, or rarity."] },
+      { heading: "Why it feels personal", body: ["Research such as Swann, 2012, Festinger, 1954 helps explain why people care about scores, labels, ability, morality, and uniqueness. People compare themselves, defend their self-image, and look for feedback that feels specific.", "That is why a strong quiz result does not need to shout. It works when it gives language to something the reader already suspected."] },
+      { heading: "A better interpretation", body: ["A useful result should feel personal without pretending to know everything about you. It should point to a pattern: how quickly you notice structure, which values win under pressure, or how often your instincts break from the crowd.", "The strongest results are specific enough to recognize and flexible enough to think about. They should make you pause for a second and ask whether the description fits."] },
+      { heading: "Take the next step", body: ["The next step is not to overthink it. Take the related RareScore test at /certificate, get the free result, and then decide whether the full analysis or certificate is worth saving.", "If the result feels accurate, it becomes a mirror. If it surprises you, it becomes a conversation."] }
+    ],
+    faqs: [
+      { question: "What does why you want your score to be official mean?", answer: "A result can feel interesting. An official-looking result feels saved, shareable, and harder to dismiss." },
+      { question: "Is the related RareScore test free?", answer: "Yes. The first attempt is free. Certificates, full analysis reports, printed options, framed options, and Fresh Question Sets are optional after the result." },
+      { question: "Can I save my result?", answer: "Yes. After the result, you can unlock a digital certificate and full analysis, or choose printed and framed certificate options." }
+    ],
+    references: [
+      { label: "Swann, 2012", title: "Self-Verification Theory", url: "https://labs.la.utexas.edu/swann/files/2016/02/svt-lange-et-al.pdf", note: "Explains why people seek feedback that confirms their self-view." },
+      { label: "Festinger, 1954", title: "A Theory of Social Comparison Processes", url: "https://journals.sagepub.com/doi/10.1177/001872675400700202", note: "Foundational social comparison theory." }
+    ],
+  },
+  {
+    slug: "why-competitive-people-love-online-tests", title: "Why Competitive People Love Online Tests", description: "Competitive people do not only want a result. They want a number that invites a challenge.", date: "2026-05-21", readTime: "9 min read", category: "Sharing", keywords: ["competitive people online tests", "quiz challenge", "score comparison"], ctaLabel: "Start a Challenge", ctaHref: "/tests", image: "/blog-images/why-competitive-people-love-online-tests.svg", imageAlt: "Premium editorial visual for Why Competitive People Love Online Tests", intro: "Competitive people do not only want a result. They want a number that invites a challenge. This article explains the idea in a practical way and points you toward a result you can test for yourself.",
+    sections: [
+      { heading: "The private question behind it", body: ["Competitive people do not only want a result. They want a number that invites a challenge. The reason this question gets searched is simple: it is usually attached to a private feeling people do not always say out loud.", "RareScore treats that feeling as a starting point, not a diagnosis. The goal is to give you a structured way to test one slice of your thinking, values, or rarity."] },
+      { heading: "What research suggests", body: ["Research such as Festinger, 1954, Zell et al., 2020 helps explain why people care about scores, labels, ability, morality, and uniqueness. People compare themselves, defend their self-image, and look for feedback that feels specific.", "That is why a strong quiz result does not need to shout. It works when it gives language to something the reader already suspected."] },
+      { heading: "What this may mean for you", body: ["A useful result should feel personal without pretending to know everything about you. It should point to a pattern: how quickly you notice structure, which values win under pressure, or how often your instincts break from the crowd.", "The strongest results are specific enough to recognize and flexible enough to think about. They should make you pause for a second and ask whether the description fits."] },
+      { heading: "Try it against your own result", body: ["The next step is not to overthink it. Take the related RareScore test at /tests, get the free result, and then decide whether the full analysis or certificate is worth saving.", "If the result feels accurate, it becomes a mirror. If it surprises you, it becomes a conversation."] }
+    ],
+    faqs: [
+      { question: "What does why competitive people love online tests mean?", answer: "Competitive people do not only want a result. They want a number that invites a challenge." },
+      { question: "Is the related RareScore test free?", answer: "Yes. The first attempt is free. Certificates, full analysis reports, printed options, framed options, and Fresh Question Sets are optional after the result." },
+      { question: "Can I save my result?", answer: "Yes. After the result, you can unlock a digital certificate and full analysis, or choose printed and framed certificate options." }
+    ],
+    references: [
+      { label: "Festinger, 1954", title: "A Theory of Social Comparison Processes", url: "https://journals.sagepub.com/doi/10.1177/001872675400700202", note: "Foundational social comparison theory." },
+      { label: "Zell et al., 2020", title: "The Better-Than-Average Effect in Comparative Self-Evaluation", url: "https://pubmed.ncbi.nlm.nih.gov/31789535/", note: "Meta-analysis of how people compare themselves to others." }
+    ],
+  },
+  {
+    slug: "what-makes-a-result-worth-sharing", title: "What Makes a Result Worth Sharing?", description: "A result gets shared when it feels flattering, specific, surprising, or just controversial enough to invite a reaction.", date: "2026-05-21", readTime: "9 min read", category: "Sharing", keywords: ["what makes quiz results shareable", "shareable quiz result", "online quiz sharing"], ctaLabel: "Use Share Captions", ctaHref: "/share", image: "/blog-images/what-makes-a-result-worth-sharing.svg", imageAlt: "Premium editorial visual for What Makes a Result Worth Sharing?", intro: "A result gets shared when it feels flattering, specific, surprising, or just controversial enough to invite a reaction. This article explains the idea in a practical way and points you toward a result you can test for yourself.",
+    sections: [
+      { heading: "Common signs", body: ["A result gets shared when it feels flattering, specific, surprising, or just controversial enough to invite a reaction. The reason this question gets searched is simple: it is usually attached to a private feeling people do not always say out loud.", "RareScore treats that feeling as a starting point, not a diagnosis. The goal is to give you a structured way to test one slice of your thinking, values, or rarity."] },
+      { heading: "The mental loop underneath", body: ["Research such as Festinger, 1954, Swann, 2012 helps explain why people care about scores, labels, ability, morality, and uniqueness. People compare themselves, defend their self-image, and look for feedback that feels specific.", "That is why a strong quiz result does not need to shout. It works when it gives language to something the reader already suspected."] },
+      { heading: "Where people get it wrong", body: ["A useful result should feel personal without pretending to know everything about you. It should point to a pattern: how quickly you notice structure, which values win under pressure, or how often your instincts break from the crowd.", "The strongest results are specific enough to recognize and flexible enough to think about. They should make you pause for a second and ask whether the description fits."] },
+      { heading: "How RareScore turns it into a test", body: ["The next step is not to overthink it. Take the related RareScore test at /share, get the free result, and then decide whether the full analysis or certificate is worth saving.", "If the result feels accurate, it becomes a mirror. If it surprises you, it becomes a conversation."] }
+    ],
+    faqs: [
+      { question: "What does what makes a result worth sharing? mean?", answer: "A result gets shared when it feels flattering, specific, surprising, or just controversial enough to invite a reaction." },
+      { question: "Is the related RareScore test free?", answer: "Yes. The first attempt is free. Certificates, full analysis reports, printed options, framed options, and Fresh Question Sets are optional after the result." },
+      { question: "Can I save my result?", answer: "Yes. After the result, you can unlock a digital certificate and full analysis, or choose printed and framed certificate options." }
+    ],
+    references: [
+      { label: "Festinger, 1954", title: "A Theory of Social Comparison Processes", url: "https://journals.sagepub.com/doi/10.1177/001872675400700202", note: "Foundational social comparison theory." },
+      { label: "Swann, 2012", title: "Self-Verification Theory", url: "https://labs.la.utexas.edu/swann/files/2016/02/svt-lange-et-al.pdf", note: "Explains why people seek feedback that confirms their self-view." }
+    ],
+  },
+  {
+    slug: "why-people-buy-certificates-for-online-results", title: "Why People Buy Certificates for Online Results", description: "People buy the polished version when the result feels like something they want to keep, prove, or send.", date: "2026-05-21", readTime: "9 min read", category: "Certificates", keywords: ["why people buy certificates", "online result certificate", "quiz certificate"], ctaLabel: "View Certificate Options", ctaHref: "/certificate", image: "/blog-images/why-people-buy-certificates-for-online-results.svg", imageAlt: "Premium editorial visual for Why People Buy Certificates for Online Results", intro: "People buy the polished version when the result feels like something they want to keep, prove, or send. This article explains the idea in a practical way and points you toward a result you can test for yourself.",
+    sections: [
+      { heading: "The uncomfortable part", body: ["People buy the polished version when the result feels like something they want to keep, prove, or send. The reason this question gets searched is simple: it is usually attached to a private feeling people do not always say out loud.", "RareScore treats that feeling as a starting point, not a diagnosis. The goal is to give you a structured way to test one slice of your thinking, values, or rarity."] },
+      { heading: "A useful way to think about it", body: ["Research such as Swann, 2012 helps explain why people care about scores, labels, ability, morality, and uniqueness. People compare themselves, defend their self-image, and look for feedback that feels specific.", "That is why a strong quiz result does not need to shout. It works when it gives language to something the reader already suspected."] },
+      { heading: "What your answer may reveal", body: ["A useful result should feel personal without pretending to know everything about you. It should point to a pattern: how quickly you notice structure, which values win under pressure, or how often your instincts break from the crowd.", "The strongest results are specific enough to recognize and flexible enough to think about. They should make you pause for a second and ask whether the description fits."] },
+      { heading: "Make the result worth saving", body: ["The next step is not to overthink it. Take the related RareScore test at /certificate, get the free result, and then decide whether the full analysis or certificate is worth saving.", "If the result feels accurate, it becomes a mirror. If it surprises you, it becomes a conversation."] }
+    ],
+    faqs: [
+      { question: "What does why people buy certificates for online results mean?", answer: "People buy the polished version when the result feels like something they want to keep, prove, or send." },
+      { question: "Is the related RareScore test free?", answer: "Yes. The first attempt is free. Certificates, full analysis reports, printed options, framed options, and Fresh Question Sets are optional after the result." },
+      { question: "Can I save my result?", answer: "Yes. After the result, you can unlock a digital certificate and full analysis, or choose printed and framed certificate options." }
+    ],
+    references: [
+      { label: "Swann, 2012", title: "Self-Verification Theory", url: "https://labs.la.utexas.edu/swann/files/2016/02/svt-lange-et-al.pdf", note: "Explains why people seek feedback that confirms their self-view." }
+    ],
+  },
+  {
+    slug: "how-to-know-if-you-think-differently", title: "How to Know If You Think Differently", description: "Thinking differently is not one trait. It can show up as pattern speed, moral intensity, unusual associations, or independent judgment.", date: "2026-05-21", readTime: "9 min read", category: "Self Discovery", keywords: ["how to know if you think differently", "different thinker", "self discovery test"], ctaLabel: "Choose a Test", ctaHref: "/tests", image: "/blog-images/how-to-know-if-you-think-differently.svg", imageAlt: "Premium editorial visual for How to Know If You Think Differently", intro: "Thinking differently is not one trait. It can show up as pattern speed, moral intensity, unusual associations, or independent judgment. This article explains the idea in a practical way and points you toward a result you can test for yourself.",
+    sections: [
+      { heading: "Why people search this", body: ["Thinking differently is not one trait. It can show up as pattern speed, moral intensity, unusual associations, or independent judgment. The reason this question gets searched is simple: it is usually attached to a private feeling people do not always say out loud.", "RareScore treats that feeling as a starting point, not a diagnosis. The goal is to give you a structured way to test one slice of your thinking, values, or rarity."] },
+      { heading: "The psychology in plain English", body: ["Research such as Snyder & Fromkin, 1977, Frederick, 2005 helps explain why people care about scores, labels, ability, morality, and uniqueness. People compare themselves, defend their self-image, and look for feedback that feels specific.", "That is why a strong quiz result does not need to shout. It works when it gives language to something the reader already suspected."] },
+      { heading: "A quick self-check", body: ["A useful result should feel personal without pretending to know everything about you. It should point to a pattern: how quickly you notice structure, which values win under pressure, or how often your instincts break from the crowd.", "The strongest results are specific enough to recognize and flexible enough to think about. They should make you pause for a second and ask whether the description fits."] },
+      { heading: "Where to go next", body: ["The next step is not to overthink it. Take the related RareScore test at /tests, get the free result, and then decide whether the full analysis or certificate is worth saving.", "If the result feels accurate, it becomes a mirror. If it surprises you, it becomes a conversation."] }
+    ],
+    faqs: [
+      { question: "What does how to know if you think differently mean?", answer: "Thinking differently is not one trait. It can show up as pattern speed, moral intensity, unusual associations, or independent judgment." },
+      { question: "Is the related RareScore test free?", answer: "Yes. The first attempt is free. Certificates, full analysis reports, printed options, framed options, and Fresh Question Sets are optional after the result." },
+      { question: "Can I save my result?", answer: "Yes. After the result, you can unlock a digital certificate and full analysis, or choose printed and framed certificate options." }
+    ],
+    references: [
+      { label: "Snyder & Fromkin, 1977", title: "Need for Uniqueness", url: "https://sjdm.org/dmidi/Need_for_Uniqueness.html", note: "Classic research on the desire to feel distinct from others." },
+      { label: "Frederick, 2005", title: "Cognitive Reflection and Decision Making", url: "https://www.aeaweb.org/articles?id=10.1257/089533005775196732", note: "Research on intuitive answers versus reflective thinking." }
+    ],
+  },
+  {
+    slug: "why-average-feels-like-an-insult", title: "Why Average Feels Like an Insult", description: "Average feels insulting when your identity depends on being distinct, exceptional, or hard to categorize.", date: "2026-05-21", readTime: "18 min read", category: "Rarity Test", keywords: ["why average feels like an insult", "hate being average", "need for uniqueness"], ctaLabel: "Find Your RareScore", ctaHref: "/are-you-rare", image: "/blog-images/why-average-feels-like-an-insult.svg", imageAlt: "Premium editorial visual for Why Average Feels Like an Insult", intro: "Average feels insulting when your identity depends on being distinct, exceptional, or hard to categorize. This article explains the idea in a practical way and points you toward a result you can test for yourself.",
+    sections: [
+      { heading: "What the pattern looks like", body: ["Average feels insulting when your identity depends on being distinct, exceptional, or hard to categorize. The reason this question gets searched is simple: it is usually attached to a private feeling people do not always say out loud.", "RareScore treats that feeling as a starting point, not a diagnosis. The goal is to give you a structured way to test one slice of your thinking, values, or rarity."] },
+      { heading: "Why it feels personal", body: ["Research such as Snyder & Fromkin, 1977, Zell et al., 2020 helps explain why people care about scores, labels, ability, morality, and uniqueness. People compare themselves, defend their self-image, and look for feedback that feels specific.", "That is why a strong quiz result does not need to shout. It works when it gives language to something the reader already suspected."] },
+      { heading: "A better interpretation", body: ["A useful result should feel personal without pretending to know everything about you. It should point to a pattern: how quickly you notice structure, which values win under pressure, or how often your instincts break from the crowd.", "The strongest results are specific enough to recognize and flexible enough to think about. They should make you pause for a second and ask whether the description fits."] },
+      { heading: "Take the next step", body: ["The next step is not to overthink it. Take the related RareScore test at /are-you-rare, get the free result, and then decide whether the full analysis or certificate is worth saving.", "If the result feels accurate, it becomes a mirror. If it surprises you, it becomes a conversation."] }
+    ],
+    faqs: [
+      { question: "What does why average feels like an insult mean?", answer: "Average feels insulting when your identity depends on being distinct, exceptional, or hard to categorize." },
+      { question: "Is the related RareScore test free?", answer: "Yes. The first attempt is free. Certificates, full analysis reports, printed options, framed options, and Fresh Question Sets are optional after the result." },
+      { question: "Can I save my result?", answer: "Yes. After the result, you can unlock a digital certificate and full analysis, or choose printed and framed certificate options." }
+    ],
+    references: [
+      { label: "Snyder & Fromkin, 1977", title: "Need for Uniqueness", url: "https://sjdm.org/dmidi/Need_for_Uniqueness.html", note: "Classic research on the desire to feel distinct from others." },
+      { label: "Zell et al., 2020", title: "The Better-Than-Average Effect in Comparative Self-Evaluation", url: "https://pubmed.ncbi.nlm.nih.gov/31789535/", note: "Meta-analysis of how people compare themselves to others." }
     ],
   }
 ];
-
-export function getArticle(slug: string) {
-  return articles.find((article) => article.slug === slug);
-}
+export function getArticle(slug: string) { return articles.find((article) => article.slug === slug); }
+export const articleCategories = Array.from(new Set(articles.map((article) => article.category)));

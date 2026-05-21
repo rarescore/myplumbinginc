@@ -1,35 +1,17 @@
 import { Header, Footer } from "../components/Site";
-
-export const metadata = {
-  title: "Privacy Policy",
-  description: "RareScore privacy policy covering local quiz results, Stripe payments, Resend email delivery, and certificate information.",
-  alternates: { canonical: "/privacy" },
-};
-
-export default function Page() {
-  return (
-    <main>
-      <Header />
-      <section className="pageHero legalPage">
-        <div className="sectionKicker">Privacy Policy</div>
-        <h1>Privacy Policy</h1>
-        <p>RareScore is designed so users can start tests without creating an account.</p>
-      </section>
-      <section className="legalCopy">
-        <h2>Information we collect</h2>
-        <p>When you take a test, answers may be stored locally in your browser to calculate and display your result. When you choose to purchase a certificate, we collect the name entered for the certificate and the email address used for delivery.</p>
-        <h2>Payments</h2>
-        <p>Payments are processed by Stripe. RareScore does not store full card numbers or full payment card details.</p>
-        <h2>Email delivery</h2>
-        <p>Certificate emails are sent through Resend using the email address you provide at checkout. Public support is available at hello.myrarescore@gmail.com.</p>
-        <h2>Certificates</h2>
-        <p>Certificate files are generated using the name, test result, score, result type, certificate ID, and issue date connected to the completed quiz result.</p>
-        <h2>Local storage</h2>
-        <p>RareScore may use browser local storage to remember the last completed test result on the same device. Clearing browser data may remove the saved result.</p>
-        <h2>Contact</h2>
-        <p>Questions can be sent to hello.myrarescore@gmail.com.</p>
-      </section>
-      <Footer />
-    </main>
-  );
-}
+export const metadata={title:"Privacy Policy | RareScore",description:"RareScore privacy policy covering quiz results, local storage, Stripe payments, certificates, email delivery, shipping, contact forms, and user choices.",alternates:{canonical:"/privacy"}};
+const sections=[
+["Information we collect","RareScore lets you start tests without creating an account. We may collect quiz answers, result data, name entered for certificates or reports, email address used for delivery, birth date entered for rarity numerology-style reports, and contact form submissions."],
+["Quiz answers and results","Quiz answers are used to calculate your result, build analysis previews, and generate optional reports. Results may be stored in your browser local storage so you can view the last completed result on the same device."],
+["Birth date and numerology-style reports","If you take the Are You Rare test, you may enter a birth date to personalize an entertainment-style numerology report. This is used to generate your report and is not a medical, financial, legal, or guaranteed future prediction."],
+["Payments","Payments are processed by Stripe. RareScore does not store full card numbers or full payment card details. Stripe may collect payment, billing, and fraud-prevention information according to its own policies."],
+["Printed and framed certificates","If you purchase a printed or framed certificate, Stripe Checkout collects shipping details so the order can be fulfilled. Shipping is described at checkout and on the certificate page."],
+["Email delivery","Certificate and report emails are sent through Resend using the email address provided at checkout. Contact form notifications may also be sent through Resend."],
+["Contact form submissions","If you contact RareScore, we collect the information you submit, including your name, email, reason, subject, message, and any optional screenshot or PDF attachment."],
+["Cookies, analytics, and local storage","RareScore may use browser storage and may later use analytics to understand page visits, quiz starts, completions, and purchase flow performance. Clearing browser data may remove locally saved results."],
+["Security","RareScore uses server-side Stripe checkout and payment verification for certificate delivery. No website can guarantee absolute security, but we use reasonable safeguards for the type of information processed."],
+["Children’s privacy","RareScore is not designed for children under 13. If you believe a child submitted personal information, contact us so we can review the request."],
+["User choices","You can avoid purchasing, clear your browser storage, or contact us to ask questions about certificate delivery or support information."],
+["Changes and contact","We may update this policy as the product changes. Questions can be sent through the contact page or to hello.myrarescore@gmail.com."]
+];
+export default function Page(){return <main><Header/><section className="pageHero compactHero legalHero"><div className="sectionKicker">Privacy Policy</div><h1>Privacy Policy</h1><p>RareScore is designed to keep the free test experience simple while explaining clearly what happens when you save, unlock, or contact us about a result.</p></section><section className="legalCopy polishedLegal">{sections.map(([h,p])=><div key={h}><h2>{h}</h2><p>{p}</p></div>)}</section><Footer/></main>}

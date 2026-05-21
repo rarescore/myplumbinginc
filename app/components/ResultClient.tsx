@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { getMeta, RouteQuizId, scoreLabelForRoute } from "../lib/quizMeta";
+import { buildAnalysis } from "../lib/analysisReport";
 
 export default function ResultClient() {
   const [data, setData] = useState<any>(null);
@@ -41,16 +42,19 @@ export default function ResultClient() {
 
   const result = data.result;
   const label = scoreLabelForRoute(data.testRoute as RouteQuizId);
+  const analysis = buildAnalysis({ name: data.participant?.name, birthDate: data.participant?.birthDate, testRoute: data.testRoute, testTitle: data.testTitle, score: result.score, resultTitle: result.title, answers: data.answers });
   const headline =
     data.testRoute === "logic"
       ? `Your IQ is ${result.score}`
       : data.testRoute === "morality"
-      ? `Your Morality Score is ${result.score}`
+      ? `Your morality profile is ${result.title}`
       : `Your RareScore is ${result.score}`;
 
   const shareText = meta.shareMessage(result.score, result.title);
   const shareUrl = `${window.location.origin}${meta.url}`;
   const encoded = encodeURIComponent(`${shareText} ${shareUrl}`);
+
+  localStorage.setItem("rarescore:analysisInfo", JSON.stringify({ name: data.participant?.name, birthDate: data.participant?.birthDate, testRoute: data.testRoute, testTitle: data.testTitle, score: result.score, resultTitle: result.title, answers: data.answers }));
 
   async function copyShare() {
     await navigator.clipboard?.writeText(`${shareText} ${shareUrl}`);
@@ -109,7 +113,7 @@ export default function ResultClient() {
           <h1>{result.score}</h1>
           <div>
             <h2>{headline}</h2>
-            <p>Result type: {result.title}</p>
+            <p>Result type: {result.title}</p>{data.testRoute === "rare" && analysis.lifePath && <p className="muted">Life path number: {analysis.lifePath}</p>}
             {result.percentile && <p className="muted">Estimated percentile: {result.percentile}th</p>}
           </div>
         </div>
@@ -125,6 +129,16 @@ export default function ResultClient() {
         </div>
 
         <p className="resultParagraph">{result.paragraph}</p>
+
+        <div className="analysisPreviewCard">
+          <div>
+            <div className="miniBadge inlineBadge">Personal analysis preview</div>
+            <h3>{data.testRoute === "rare" ? "Your rarity report is ready." : "Your deeper profile is ready."}</h3>
+            <p>{analysis.preview}</p>
+            <div className="lockedReportLines"><span></span><span></span><span></span></div>
+          </div>
+          <a className="goldButton" href="/certificate">Unlock Full Analysis + Certificate <span>→</span></a>
+        </div>
 
         <div className="insightGrid">
           {result.insightCards.map((card: any) => (
@@ -184,7 +198,7 @@ export default function ResultClient() {
               <div className="crestMini popupLogo" aria-hidden="true"><span>R</span><i>✓</i></div>
               <div className="sectionKicker">Optional certificate</div>
               <h3>Make your result official.</h3>
-              <p>Your score is free. Unlock the PDF + PNG certificate with your name, score, result type, certificate ID, and issue date.</p>
+              <p>Your score is free. Unlock the full analysis report plus your official PDF + PNG certificate with your name, result type, certificate ID, and issue date.</p>
               <div className="priceLine centeredPrice"><s>$19.99</s><strong>$9.99 today</strong></div>
               <a className="goldButton" href="/certificate">Purchase PDF Certificate <span>→</span></a>
               <div className="popupUpsellButtons">

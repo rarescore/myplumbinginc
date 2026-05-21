@@ -48,6 +48,8 @@ export default function CertificateClient() {
 
     setLoading(true);
 
+    const analysisInfo = JSON.parse(localStorage.getItem("rarescore:analysisInfo") || "{}");
+
     localStorage.setItem("rarescore:certificateInfo", JSON.stringify({
       name,
       email,
@@ -59,6 +61,7 @@ export default function CertificateClient() {
       completedAt: data.completedAt,
       scoreLabel,
       purchaseType: finalPurchaseType,
+      analysisInfo,
     }));
 
     const res = await fetch("/api/create-checkout-session", {
@@ -109,7 +112,7 @@ export default function CertificateClient() {
         <div className="certificateForm">
           <div className="sectionKicker">Official RareScore Certificate</div>
           <h1>Make your result official.</h1>
-          <p>Your score is free. Choose a digital certificate, a high-quality printed certificate, or a framed certificate shipped to your address.</p>
+          <p>Your score is free. Choose a digital certificate, full analysis report, high-quality printed certificate, or framed certificate shipped to your address.</p>
 
           <div className="priceLine large"><s>$19.99</s><strong>Digital from $9.99</strong></div>
 
@@ -123,7 +126,7 @@ export default function CertificateClient() {
 
           <div className="certificateChoiceGrid">
             <button className="goldButton" onClick={() => checkout("certificate")} disabled={loading}>
-              <span>Digital PDF + PNG</span>
+              <span>Digital Certificate + Analysis PDF</span>
               <strong>$9.99</strong>
             </button>
             <button className="ghostButton premiumChoice" onClick={() => checkout("printedCertificate")} disabled={loading}>

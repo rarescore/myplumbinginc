@@ -89,6 +89,8 @@ export default function QuizRunner({ type }: { type: RouteQuizId }) {
   const [timer, setTimer] = useState(0);
   const [remainingSeconds, setRemainingSeconds] = useState(60 * 60);
   const [freshMode, setFreshMode] = useState(false);
+  const [participantName, setParticipantName] = useState("");
+  const [birthDate, setBirthDate] = useState("");
   const questions = useMemo(() => freshMode ? getAdvancedFreshQuestionsByTest(engineId) : baseQuestions, [freshMode, engineId, baseQuestions]);
 
   useEffect(() => {
@@ -112,6 +114,8 @@ export default function QuizRunner({ type }: { type: RouteQuizId }) {
   const timerDisplay = `${String(Math.floor(remainingSeconds / 60)).padStart(2, "0")}:${String(remainingSeconds % 60).padStart(2, "0")}`;
 
   function start() {
+    if (type === "rare" && !birthDate) return;
+    localStorage.setItem("rarescore:participant", JSON.stringify({ name: participantName, birthDate }));
     setStarted(true);
     setTimer(Date.now());
     setRemainingSeconds(60 * 60);
@@ -140,6 +144,7 @@ export default function QuizRunner({ type }: { type: RouteQuizId }) {
       result,
       completedAt: new Date().toISOString(),
       secondsSpent: Math.max(1, Math.round((Date.now() - timer) / 1000)),
+      participant: { name: participantName, birthDate },
       freshMode,
       answers: nextAnswers,
     };
@@ -155,13 +160,20 @@ export default function QuizRunner({ type }: { type: RouteQuizId }) {
           <div className="sectionKicker">{meta.time}</div>
           <h1>{meta.title}</h1>
           <p>{meta.longDescription}</p>
-          <div className="introBullets">
+          {type === "rare" && (
+            <div className="rareIdentityFields">
+              <label>Your name <input value={participantName} onChange={(e) => setParticipantName(e.target.value)} placeholder="Name for your report" /></label>
+              <label>Birth date <input type="date" value={birthDate} onChange={(e) => setBirthDate(e.target.value)} /></label>
+              <small>Used to personalize your rarity and numerology-style report.</small>
+            </div>
+          )}
+          <div className="introBullets compactBullets">
             <span>{freshMode ? "Fresh 30 question set" : "30 questions"}</span>
             <span>Focus timer</span>
-            <span>Instant score</span>
-            <span>No sign up required</span>
+            <span>Instant result</span>
+            <span>No account needed</span>
           </div>
-          <button className="goldButton" onClick={start}>Start Quiz <span>→</span></button>
+          <button className="goldButton" onClick={start} disabled={type === "rare" && !birthDate}>Start Quiz <span>→</span></button>
         </div>
       </main>
     );
@@ -174,7 +186,7 @@ export default function QuizRunner({ type }: { type: RouteQuizId }) {
       <div className="quizTopBar">
         <a href={meta.url}>← Back</a>
         <span>Question {index + 1} of {questions.length}</span>
-        <span>Focus timer: {timerDisplay}</span>
+        <span>{timerDisplay}</span>
       </div>
 
       <div className="quizProgress"><div style={{ width: `${progress}%` }} /></div>

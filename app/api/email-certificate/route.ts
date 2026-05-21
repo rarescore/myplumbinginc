@@ -73,6 +73,7 @@ export async function POST(req: Request) {
     const fromEmail = process.env.CERTIFICATE_FROM_EMAIL || "hello@myrarescore.com";
     const replyTo = process.env.CERTIFICATE_REPLY_TO_EMAIL || "hello.myrarescore@gmail.com";
     const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://myrarescore.com";
+    const analysisAttachment = body.analysisPdfBase64 && validBase64File(body.analysisPdfBase64, 5_000_000) ? [{ filename: "RareScore-Full-Analysis.pdf", content: body.analysisPdfBase64 }] : [];
     const physicalNote = purchaseType === "printedCertificate" || purchaseType === "framedCertificate"
       ? "<p>Your physical certificate order includes free shipping. Estimated delivery: 3–5 business days after fulfillment.</p>"
       : "";
@@ -93,7 +94,7 @@ export async function POST(req: Request) {
             <strong>Result:</strong> ${resultTitle}<br/>
             <strong>Certificate ID:</strong> ${certificateId}
           </p>
-          <p>Your certificate PDF and PNG are attached to this email.</p>${physicalNote}
+          <p>Your certificate PDF, PNG, and any included analysis report are attached to this email.</p>${physicalNote}
           <p>Thank you,<br/>Score Verification Department<br/>RareScore<br/>${siteUrl.replace("https://", "")}</p>
         </div>
       `,
@@ -106,6 +107,7 @@ export async function POST(req: Request) {
           filename: "Official-RareScore-Certificate.png",
           content: body.pngBase64,
         },
+        ...analysisAttachment,
       ],
     });
 

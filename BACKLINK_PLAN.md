@@ -1,21 +1,9 @@
 # RareScore Backlink Plan
 
-This build adds:
-- /blog
-- 10 SEO article pages
-- /press
-- /share
+This build adds 30 SEO article pages with custom SVG article images, /press, /share, article schema, FAQ schema, breadcrumb schema, Open Graph images, Twitter preview images, and sitemap updates.
 
 After deployment:
-1. Submit /press to startup directories and website directories.
-2. Post screenshots from /share on Reddit for feedback.
-3. Send outreach emails linking to specific blog articles, not just the homepage.
-4. Track submissions in a sheet with: Website, Contact, URL, Date, Status, Backlink URL.
-
-Best first pages to share:
-- https://myrarescore.com/iq-test
-- https://myrarescore.com/are-you-rare
-- https://myrarescore.com/morality-test
-- https://myrarescore.com/blog/free-iq-test
-- https://myrarescore.com/blog/what-makes-someone-rare
-- https://myrarescore.com/press
+1. Open /blog and make sure the cards show images.
+2. Submit /press to startup directories.
+3. Use /share captions for Reddit and TikTok.
+4. Email bloggers using specific article links, not only the homepage.

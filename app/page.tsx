@@ -41,7 +41,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="heroMarkWrap" aria-hidden="true">
+        <div className="heroMarkWrap subtleHeroMark" aria-hidden="true">
           <div className="heroGlow"></div>
           <BrandShield className="shieldMark hero" />
         </div>
