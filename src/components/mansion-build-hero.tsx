@@ -2,8 +2,6 @@
 
 import { Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import phoneSheet from "@/assets/build/phone-sheet.jpg";
-import deskSheet from "@/assets/build/desk-sheet.jpg";
 import phonePoster from "@/assets/build/phone-poster.jpg";
 import deskPoster from "@/assets/build/desk-poster.jpg";
 import { company } from "@/lib/site";
@@ -37,12 +35,15 @@ export function MansionBuildHero() {
   const [hint, setHint] = useState(true);
 
   useEffect(() => {
-    const a = new Image();
-    a.src = phoneSheet;
-    const b = new Image();
-    b.src = deskSheet;
-
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isPhone = window.matchMedia("(max-width: 767px)").matches;
+    const target = isPhone ? phoneSprite.current : deskSprite.current;
+    const load = isPhone
+      ? import("@/assets/build/phone-sheet.jpg")
+      : import("@/assets/build/desk-sheet.jpg");
+    void load.then((mod) => {
+      if (target) target.style.backgroundImage = `url(${mod.default})`;
+    });
 
     function paint(index: number) {
       const pos = spritePos(index);
@@ -105,12 +106,7 @@ export function MansionBuildHero() {
           alt=""
           className="absolute inset-0 size-full object-cover md:hidden"
         />
-        <div
-          ref={phoneSprite}
-          className="absolute inset-0 md:hidden"
-          style={{ ...sheet, backgroundImage: `url(${phoneSheet})` }}
-          aria-hidden
-        />
+        <div ref={phoneSprite} className="absolute inset-0 md:hidden" style={sheet} aria-hidden />
 
         <img
           src={deskPoster}
@@ -120,7 +116,7 @@ export function MansionBuildHero() {
         <div
           ref={deskSprite}
           className="absolute inset-0 hidden md:block"
-          style={{ ...sheet, backgroundImage: `url(${deskSheet})` }}
+          style={sheet}
           aria-hidden
         />
 
