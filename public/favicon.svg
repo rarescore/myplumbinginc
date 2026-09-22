@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" role="img" aria-label="My Plumbing Inc">
+  <rect width="40" height="40" rx="8" fill="#0E1210"/>
+  <path d="M7 20h26" fill="none" stroke="#B87333" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="20" cy="20" r="6.2" fill="none" stroke="#F3EEE6" stroke-width="2.2"/>
+  <path d="M20 10.4V14.2M20 25.8v3.8" fill="none" stroke="#F3EEE6" stroke-width="2.1" stroke-linecap="round"/>
+</svg>

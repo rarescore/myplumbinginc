@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "My Plumbing Inc | Los Angeles General Contractor | CSLB #1120118",
+      "hasCanvas": false,
+      "bodyTextLen": 4401,
+      "bodyTextHash": "e16aae8201560a03c8f5f978bd60dd05d7a1dafae67e314def8ccafb7885d8d9",
+      "bodyTextPrefix": "NORTH HILLS · SAN FERNANDO VALLEY · LOS ANGELES (818) 813-3277 C",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "My Plumbing Inc | Los Angeles General Contractor | CSLB #1120118",
+      "hasCanvas": false,
+      "bodyTextLen": 4303,
+      "bodyTextHash": "86dd3593e3e0ac525860676081a72157782e9b41f856acfaf03bd848feb3d59f",
+      "bodyTextPrefix": "Services Projects Articles Reviews Areas About Contact 01 GRADED",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}

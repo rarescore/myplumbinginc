@@ -1,0 +1,38 @@
+{
+  "url": "http://127.0.0.1:8081/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "My Plumbing Inc | Los Angeles General Contractor | CSLB #1120118",
+      "hasCanvas": false,
+      "bodyTextLen": 4147,
+      "bodyTextHash": "484df39753b19a43de0658ebc3818cbafc1691320924acac17821905cc635785",
+      "bodyTextPrefix": "NORTH HILLS · SAN FERNANDO VALLEY · LOS ANGELES (818) 813-3277 C",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "My Plumbing Inc | Los Angeles General Contractor | CSLB #1120118",
+      "hasCanvas": false,
+      "bodyTextLen": 3998,
+      "bodyTextHash": "06b7c101097a503d2bf23650780a39dacc57d8c62751b6d9ac7169e123874e22",
+      "bodyTextPrefix": "01 GRADED LOT Scroll. The house goes up. Lot to lights-on — the ",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-built.json",
+  "divergesFromBaseline": false,
+  "baselineReasons": []
+}
