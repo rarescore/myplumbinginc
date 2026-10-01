@@ -4,6 +4,7 @@ import {
   Outlet,
   Scripts,
 } from "@tanstack/react-router";
+import { Analytics } from "@vercel/analytics/react";
 import { AuthProvider } from "@/lib/auth/provider";
 import { NotFound } from "@/components/not-found";
 import { PreviewHostBridge } from "@/components/preview-host-bridge";
@@ -63,6 +64,7 @@ function Root() {
           <SiteFooter />
           <StickyCall />
         </AuthProvider>
+        <Analytics />
         <Scripts />
       </body>
     </html>
