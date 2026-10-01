@@ -1,10 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ContactForm } from "@/components/contact-form";
 import { company } from "@/lib/site";
+import { canonicalLink } from "@/lib/seo";
 
 export const Route = createFileRoute("/contact")({
   component: ContactPage,
-  head: () => ({ meta: [{ title: "Contact | My Plumbing Inc" }] }),
+  head: () => ({
+    meta: [{ title: "Contact | My Plumbing Inc" }],
+    links: [canonicalLink("/contact")],
+  }),
 });
 
 function ContactPage() {

@@ -1,9 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { company } from "@/lib/site";
+import { canonicalLink } from "@/lib/seo";
 
 export const Route = createFileRoute("/about")({
   component: AboutPage,
-  head: () => ({ meta: [{ title: "About | My Plumbing Inc" }] }),
+  head: () => ({
+    meta: [{ title: "About | My Plumbing Inc" }],
+    links: [canonicalLink("/about")],
+  }),
 });
 
 function AboutPage() {

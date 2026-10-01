@@ -2,6 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { CallLink } from "@/components/call-link";
 import { articles } from "@/lib/articles";
 import { company, services } from "@/lib/site";
+import { canonicalLink } from "@/lib/seo";
 
 export const Route = createFileRoute("/services/$slug")({
   component: ServicePage,
@@ -12,6 +13,7 @@ export const Route = createFileRoute("/services/$slug")({
   },
   head: ({ loaderData }) => ({
     meta: [{ title: `${loaderData?.service.title ?? "Service"} | My Plumbing Inc` }],
+    links: loaderData ? [canonicalLink(`/services/${loaderData.service.slug}`)] : [],
   }),
 });
 

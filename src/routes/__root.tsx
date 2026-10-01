@@ -6,6 +6,10 @@ import {
 } from "@tanstack/react-router";
 import { Analytics } from "@vercel/analytics/react";
 import { AuthProvider } from "@/lib/auth/provider";
+import {
+  GoogleAnalyticsClickEvents,
+  GoogleAnalyticsTag,
+} from "@/components/google-analytics";
 import { NotFound } from "@/components/not-found";
 import { PreviewHostBridge } from "@/components/preview-host-bridge";
 import { SiteFooter } from "@/components/site-footer";
@@ -54,6 +58,7 @@ function Root() {
   return (
     <html lang="en" className="antialiased" suppressHydrationWarning>
       <head>
+        <GoogleAnalyticsTag />
         <HeadContent />
       </head>
       <body className="min-h-dvh bg-bone font-sans text-fg">
@@ -65,6 +70,7 @@ function Root() {
           <StickyCall />
         </AuthProvider>
         <Analytics />
+        <GoogleAnalyticsClickEvents />
         <Scripts />
       </body>
     </html>
