@@ -2,6 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { CallLink } from "@/components/call-link";
 import { articles, getArticle } from "@/lib/articles";
 import { company } from "@/lib/site";
+import { canonicalLink } from "@/lib/seo";
 
 export const Route = createFileRoute("/articles/$slug")({
   component: ArticlePage,
@@ -18,6 +19,7 @@ export const Route = createFileRoute("/articles/$slug")({
         { title: `${a.title} | My Plumbing Inc` },
         { name: "description", content: a.dek },
       ],
+      links: [canonicalLink(`/articles/${a.slug}`)],
     };
   },
 });

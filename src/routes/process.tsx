@@ -1,9 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { processSteps } from "@/lib/site";
+import { canonicalLink } from "@/lib/seo";
 
 export const Route = createFileRoute("/process")({
   component: ProcessPage,
-  head: () => ({ meta: [{ title: "Process | My Plumbing Inc" }] }),
+  head: () => ({
+    meta: [{ title: "Process | My Plumbing Inc" }],
+    links: [canonicalLink("/process")],
+  }),
 });
 
 function ProcessPage() {

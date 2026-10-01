@@ -1,9 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { company } from "@/lib/site";
+import { canonicalLink } from "@/lib/seo";
 
 export const Route = createFileRoute("/privacy")({
   component: PrivacyPage,
-  head: () => ({ meta: [{ title: "Privacy | My Plumbing Inc" }] }),
+  head: () => ({
+    meta: [{ title: "Privacy | My Plumbing Inc" }],
+    links: [canonicalLink("/privacy")],
+  }),
 });
 
 function PrivacyPage() {

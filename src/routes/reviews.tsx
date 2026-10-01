@@ -1,9 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { company, reviews } from "@/lib/site";
+import { canonicalLink } from "@/lib/seo";
 
 export const Route = createFileRoute("/reviews")({
   component: ReviewsPage,
-  head: () => ({ meta: [{ title: "Reviews | My Plumbing Inc" }] }),
+  head: () => ({
+    meta: [{ title: "Reviews | My Plumbing Inc" }],
+    links: [canonicalLink("/reviews")],
+  }),
 });
 
 function Stars({ n }: { n: number }) {

@@ -1,9 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { services } from "@/lib/site";
+import { canonicalLink } from "@/lib/seo";
 
 export const Route = createFileRoute("/services/")({
   component: ServicesIndex,
-  head: () => ({ meta: [{ title: "Services | My Plumbing Inc" }] }),
+  head: () => ({
+    meta: [{ title: "Services | My Plumbing Inc" }],
+    links: [canonicalLink("/services")],
+  }),
 });
 
 function ServicesIndex() {

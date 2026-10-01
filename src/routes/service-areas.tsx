@@ -1,10 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ValleyMap } from "@/components/valley-map";
 import { company } from "@/lib/site";
+import { canonicalLink } from "@/lib/seo";
 
 export const Route = createFileRoute("/service-areas")({
   component: AreasPage,
-  head: () => ({ meta: [{ title: "Service Areas | My Plumbing Inc" }] }),
+  head: () => ({
+    meta: [{ title: "Service Areas | My Plumbing Inc" }],
+    links: [canonicalLink("/service-areas")],
+  }),
 });
 
 function AreasPage() {

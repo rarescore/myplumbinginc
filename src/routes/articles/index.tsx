@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { articles } from "@/lib/articles";
+import { canonicalLink } from "@/lib/seo";
 
 export const Route = createFileRoute("/articles/")({
   component: ArticlesIndex,
@@ -12,6 +13,7 @@ export const Route = createFileRoute("/articles/")({
           "Notes on ADUs, permits, kitchens, and Valley construction from a plumber-founded general contractor in North Hills.",
       },
     ],
+    links: [canonicalLink("/articles")],
   }),
 });
 

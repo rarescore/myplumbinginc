@@ -1,10 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { QuoteForm } from "@/components/quote-form";
 import { company } from "@/lib/site";
+import { canonicalLink } from "@/lib/seo";
 
 export const Route = createFileRoute("/quote")({
   component: QuotePage,
-  head: () => ({ meta: [{ title: "Book a visit | My Plumbing Inc" }] }),
+  head: () => ({
+    meta: [{ title: "Book a visit | My Plumbing Inc" }],
+    links: [canonicalLink("/quote")],
+  }),
 });
 
 function QuotePage() {
