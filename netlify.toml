@@ -1,0 +1,16 @@
+# Netlify build settings (replaces Vercel hosting).
+#
+# Nitro's "netlify" preset (vite.config.ts) writes:
+#   dist/                                  static client assets + generated _headers
+#   .netlify/functions-internal/server/    SSR server function (path "/*", preferStatic),
+#                                          picked up automatically by Netlify; no functions dir needed.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "24"
+
+# Apex -> www: set www.myplumbinginc.com as the primary domain in Netlify (it then
+# 301-redirects the bare domain automatically, like Vercel's 308).
