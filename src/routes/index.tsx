@@ -7,6 +7,7 @@ import { articles } from "@/lib/articles";
 import { BUILD_POSTER_PRELOAD_DESK, BUILD_POSTER_PRELOAD_PHONE } from "@/lib/premium-media";
 import { company, processSteps, projects, reviews, services } from "@/lib/site";
 import { canonicalLink } from "@/lib/seo";
+import { lazyPhoto } from "@/lib/img";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -45,7 +46,7 @@ function Home() {
           </div>
         </section>
         <section className="mx-auto grid max-w-6xl gap-10 px-5 py-20 md:grid-cols-2 md:items-center">
-          <img data-reveal src="/photos/open-wall.jpg" alt="Open wall with copper plumbing during a remodel" className="aspect-[4/3] w-full rounded-xl object-cover" />
+          <img data-reveal {...lazyPhoto("/photos/open-wall.webp", "(min-width: 768px) 536px, calc(100vw - 40px)")} alt="Open wall with copper plumbing during a remodel" className="aspect-[4/3] w-full rounded-xl object-cover" />
           <div data-reveal>
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-copper">Why the name</p>
             <h2 className="mt-3 font-display text-4xl font-medium md:text-5xl">Plumbing is the origin story, not the product.</h2>
@@ -65,7 +66,7 @@ function Home() {
             <div className="mt-10 grid gap-5 md:grid-cols-3" data-reveal-stagger>
               {projects.slice(0, 3).map((p) => (
                 <article key={p.slug} className="overflow-hidden rounded-xl bg-bone">
-                  <img src={p.image} alt={p.title} className="aspect-[4/3] w-full object-cover" />
+                  <img {...lazyPhoto(p.image, "(min-width: 768px) 360px, calc(100vw - 40px)")} alt={p.title} className="aspect-[4/3] w-full object-cover" />
                   <div className="p-5">
                     <p className="text-xs font-medium uppercase tracking-[0.14em] text-copper">{p.place} · {p.year}</p>
                     <h3 className="mt-2 font-display text-2xl font-medium">{p.title}</h3>
@@ -87,7 +88,7 @@ function Home() {
           <div className="mt-10 grid gap-6 md:grid-cols-3" data-reveal-stagger>
             {articles.slice(0, 3).map((a) => (
               <Link key={a.slug} to="/articles/$slug" params={{ slug: a.slug }} className="overflow-hidden rounded-xl border border-line bg-cream">
-                <img src={a.image} alt={a.alt} className="aspect-[16/9] w-full object-cover" />
+                <img {...lazyPhoto(a.image, "(min-width: 768px) 360px, calc(100vw - 40px)")} alt={a.alt} className="aspect-[16/9] w-full object-cover" />
                 <div className="p-5">
                   <p className="text-xs font-medium uppercase tracking-[0.14em] text-copper">{a.category} · {a.read}</p>
                   <h3 className="mt-2 font-display text-2xl font-medium">{a.title}</h3>
@@ -104,7 +105,7 @@ function Home() {
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" data-reveal-stagger>
             {services.map((s) => (
               <Link key={s.slug} to="/services/$slug" params={{ slug: s.slug }} className="group relative min-h-52 overflow-hidden rounded-lg">
-                <img src={s.image} alt="" className="absolute inset-0 size-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <img {...lazyPhoto(s.image, "(min-width: 1024px) 270px, (min-width: 640px) 50vw, 100vw")} alt="" className="absolute inset-0 size-full object-cover transition-transform duration-500 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-4">
                   <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-copper">{s.kicker}</p>
@@ -153,7 +154,7 @@ function Home() {
         </section>
         <section className="mx-auto grid max-w-6xl gap-8 px-5 py-20 md:grid-cols-[1.1fr_0.9fr] md:items-center" data-reveal>
           <div className="overflow-hidden rounded-xl border border-line bg-paper">
-            <img src="/photos/edgar.webp" alt="Edgar G., project contact" className="mx-auto max-h-[420px] w-auto object-contain object-top" />
+            <img src="/photos/edgar-480.webp" srcSet="/photos/edgar-480.webp 1x, /photos/edgar.webp 2x" loading="lazy" decoding="async" alt="Edgar G., project contact" className="mx-auto max-h-[420px] w-auto object-contain object-top" />
           </div>
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-copper">Project contact</p>

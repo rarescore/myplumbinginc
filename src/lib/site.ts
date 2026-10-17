@@ -35,7 +35,7 @@ export const services = [
     title: "ADU Construction",
     kicker: "Backyard living",
     summary: "Permitted accessory dwellings planned around wet walls, drainage, and how the house actually lives.",
-    image: "/photos/adu-dusk.jpg",
+    image: "/photos/adu-dusk.webp",
     body: "Most ADU overruns start in the plumbing and the permit path, not the paint. We sequence utility ties, waterproofing, and inspection so the unit is rentable — not just photogenic.",
     forWho: "Homeowners adding a rental, in-law suite, or quiet backyard office in the Valley.",
     faqs: [
@@ -54,7 +54,7 @@ export const services = [
     title: "Kitchen Remodeling",
     kicker: "Daily workhorse",
     summary: "Kitchens built around flow, storage, and plumbing that will still make sense in ten years.",
-    image: "/photos/kitchen-luxury.jpg",
+    image: "/photos/kitchen-luxury.webp",
     body: "A kitchen is a plumbing project wearing millwork. We lock sink, gas, dishwasher, and island decisions before cabinets are ordered so you are not cutting stone around a misplaced trap.",
     forWho: "Owners who cook, host, and want the room to last past the current finish trend.",
     faqs: [
@@ -69,7 +69,7 @@ export const services = [
     title: "Bathroom Remodeling",
     kicker: "Waterproof first",
     summary: "Tile, slope, and waterproofing treated as structure — not decoration.",
-    image: "/photos/bath-spa.jpg",
+    image: "/photos/bath-spa.webp",
     body: "Bathrooms leak from the shower pan, the niche, and the unsealed penetration. We build those details as if we will be called back in year eight.",
     forWho: "Primary baths, hall baths, and spa-level remodels in existing Valley homes.",
     faqs: [
@@ -84,7 +84,7 @@ export const services = [
     title: "Home Additions",
     kicker: "Seamless wing",
     summary: "New square footage that matches the house in massing, drainage, and the wet rooms you actually need.",
-    image: "/photos/addition-wing.jpg",
+    image: "/photos/addition-wing.webp",
     body: "An addition is a new foundation, a roof tie-in, and often a new bath. We plan the plumbing stack and the roof drainage with the architecture so the joint does not become the failure line.",
     forWho: "Families expanding in place instead of moving across the Valley.",
     faqs: [],
@@ -94,7 +94,7 @@ export const services = [
     title: "Garage Conversions",
     kicker: "Unused square feet",
     summary: "Legal, insulated, plumbed conversions — office, rental, or studio — not a drywalled parking stall.",
-    image: "/photos/garage-studio.jpg",
+    image: "/photos/garage-studio.webp",
     body: "Conversions live or die on insulation, egress, and whether a bath can actually drain. We will tell you when a conversion is the wrong tool and an ADU is the right one.",
     forWho: "Owners with a garage that is storage, not cars, and a need for a real room.",
     faqs: [],
@@ -114,7 +114,7 @@ export const services = [
     title: "Plumbing-Connected Remodels",
     kicker: "Behind the finish",
     summary: "Remodels that start with the pipes, the slope, and the things you cannot see in a mood board.",
-    image: "/photos/open-wall.jpg",
+    image: "/photos/open-wall.webp",
     body: "If the project touches water, it should be priced and sequenced by someone who has spent a decade in those walls. This is the work the company name still describes.",
     forWho: "Kitchens, baths, laundry, and ADUs where the pretty work is the last 20%.",
     faqs: [],
@@ -140,7 +140,7 @@ export const projects = [
     place: "North Hills",
     year: "2025",
     scope: "Permitted ADU, full wet walls, kitchen and bath",
-    image: "/photos/adu-dusk.jpg",
+    image: "/photos/adu-dusk.webp",
     note: "Utility tie-in and inspection path locked before finishes. Built to rent, not just to photograph.",
   },
   {
@@ -149,7 +149,7 @@ export const projects = [
     place: "Sherman Oaks",
     year: "2025",
     scope: "Layout, millwork, island plumbing",
-    image: "/photos/kitchen-luxury.jpg",
+    image: "/photos/kitchen-luxury.webp",
     note: "Island sink and dishwasher decided before stone. No trap cut after fabrication.",
   },
   {
@@ -158,7 +158,7 @@ export const projects = [
     place: "Encino",
     year: "2024",
     scope: "Waterproofing, tile, fixtures",
-    image: "/photos/bath-spa.jpg",
+    image: "/photos/bath-spa.webp",
     note: "Pan, niche, and penetrations treated as structure. Linear drain, limestone, bronze.",
   },
   {
@@ -167,7 +167,7 @@ export const projects = [
     place: "Van Nuys",
     year: "2024",
     scope: "New wing, matching stucco, new bath",
-    image: "/photos/addition-wing.jpg",
+    image: "/photos/addition-wing.webp",
     note: "Roof drainage and stack planned with the massing so the joint is not the leak.",
   },
   {
@@ -176,7 +176,7 @@ export const projects = [
     place: "Studio City",
     year: "2025",
     scope: "Insulated conversion, bath, egress",
-    image: "/photos/garage-studio.jpg",
+    image: "/photos/garage-studio.webp",
     note: "Legal conversion, not a drywalled stall. Bath drain and insulation decided on day one.",
   },
   {
@@ -221,7 +221,7 @@ export const projects = [
     place: "Glendale",
     year: "2024",
     scope: "Repipe of opened walls during a kitchen and laundry redo",
-    image: "/photos/open-wall.jpg",
+    image: "/photos/open-wall.webp",
     note: "Copper in the wall, named on the scope. The pretty work started after inspection.",
   },
   {
