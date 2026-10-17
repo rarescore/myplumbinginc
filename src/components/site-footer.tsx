@@ -8,7 +8,7 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-4">
         <div className="md:col-span-1">
           <div className="inline-flex rounded-lg bg-bone p-2">
-            <BrandLogo height={72} className="h-[4.5rem]" />
+            <BrandLogo lazy height={72} className="h-[4.5rem]" />
           </div>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-bone/70">
             Trade-first general contractor. ADUs, remodels, and plumbing-connected

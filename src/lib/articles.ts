@@ -19,7 +19,7 @@ export const articles: Article[] = [
     date: "September 2026",
     category: "ADUs",
     read: "6 min",
-    image: "/photos/articles/adu-dusk-valley.jpg",
+    image: "/photos/articles/adu-dusk-valley.webp",
     alt: "Finished backyard ADU at dusk in the San Fernando Valley",
     related: "adu-contractor-los-angeles",
     sections: [
@@ -52,7 +52,7 @@ export const articles: Article[] = [
     date: "August 2026",
     category: "Conversions",
     read: "5 min",
-    image: "/photos/articles/garage-glass.jpg",
+    image: "/photos/articles/garage-glass.webp",
     alt: "Los Angeles garage converted to a glass-front studio",
     related: "garage-conversions-los-angeles",
     sections: [
@@ -84,7 +84,7 @@ export const articles: Article[] = [
     date: "July 2026",
     category: "Baths",
     read: "5 min",
-    image: "/photos/articles/bath-open.jpg",
+    image: "/photos/articles/bath-open.webp",
     alt: "Bathroom remodel in progress with copper pipes and stacked tile",
     related: "bathroom-remodeling-los-angeles",
     sections: [
@@ -110,7 +110,7 @@ export const articles: Article[] = [
     date: "June 2026",
     category: "Kitchens",
     read: "5 min",
-    image: "/photos/articles/kitchen-island.jpg",
+    image: "/photos/articles/kitchen-island.webp",
     alt: "Kitchen island with stone counter and copper faucet",
     related: "kitchen-remodeling-los-angeles",
     sections: [
@@ -136,7 +136,7 @@ export const articles: Article[] = [
     date: "May 2026",
     category: "ADUs",
     read: "6 min",
-    image: "/photos/articles/wet-wall.jpg",
+    image: "/photos/articles/wet-wall.webp",
     alt: "Open framed wall with plumbing stack during ADU construction",
     related: "adu-contractor-los-angeles",
     sections: [
@@ -162,7 +162,7 @@ export const articles: Article[] = [
     date: "April 2026",
     category: "Additions",
     read: "6 min",
-    image: "/photos/articles/valley-ranch.jpg",
+    image: "/photos/articles/valley-ranch.webp",
     alt: "1950s San Fernando Valley ranch house in afternoon light",
     related: "bathroom-remodeling-los-angeles",
     sections: [
@@ -188,7 +188,7 @@ export const articles: Article[] = [
     date: "March 2026",
     category: "Additions",
     read: "5 min",
-    image: "/photos/articles/addition-frame.jpg",
+    image: "/photos/articles/addition-frame.webp",
     alt: "Home addition framing attached to a stucco house",
     related: "home-additions-los-angeles",
     sections: [
@@ -214,7 +214,7 @@ export const articles: Article[] = [
     date: "February 2026",
     category: "Process",
     read: "5 min",
-    image: "/photos/articles/license-table.jpg",
+    image: "/photos/articles/license-table.webp",
     alt: "Contractor license and copper fitting on a job-site table",
     related: "general-contractor-los-angeles",
     sections: [
