@@ -66,13 +66,20 @@ export function GoogleAnalyticsClickEvents() {
     const onClick = (event: MouseEvent) => {
       const target = event.target;
       if (!(target instanceof Element)) return;
-      const a = target.closest('a[href^="tel:" i], a[href^="mailto:" i]');
+      const a = target.closest('a[href^="tel:" i], a[href^="mailto:" i], a[href^="sms:" i]');
       if (!a || typeof window.gtag !== "function") return;
       const href = a.getAttribute("href") ?? "";
       const common = {
         page_location: window.location.href,
         link_section: linkSection(a),
       };
+      if (/^sms:/i.test(href)) {
+        window.gtag("event", "click_sms", {
+          ...common,
+          link_text: linkText(a),
+        });
+        return;
+      }
       if (/^tel:/i.test(href)) {
         window.gtag("event", "click_to_call", {
           ...common,
@@ -92,4 +99,14 @@ export function GoogleAnalyticsClickEvents() {
     return () => document.removeEventListener("click", onClick, true);
   }, []);
   return null;
+}
+
+/** Fires a GA4 generate_lead event when a lead form is submitted (no PII sent). */
+export function trackLead(formName: string, detail?: string) {
+  if (typeof window === "undefined" || typeof window.gtag !== "function") return;
+  window.gtag("event", "generate_lead", {
+    form_name: formName,
+    lead_detail: detail ?? "",
+    page_location: window.location.href,
+  });
 }

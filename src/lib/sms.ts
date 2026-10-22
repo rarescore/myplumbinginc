@@ -61,3 +61,8 @@ export function contactSmsBody(d: {
     .filter(Boolean)
     .join("\n");
 }
+
+/** Email fallback for desktops, where sms: links usually do nothing. */
+export function mailtoHref(subject: string, body: string) {
+  return `mailto:${company.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body.slice(0, MAX))}`;
+}

@@ -1,8 +1,9 @@
 "use client";
 
+import { trackLead } from "@/components/google-analytics";
 import { useState } from "react";
 import { company, projectTypes } from "@/lib/site";
-import { openSms, quoteSmsBody, smsHref } from "@/lib/sms";
+import { mailtoHref, openSms, quoteSmsBody, smsHref } from "@/lib/sms";
 import { cn } from "@/lib/utils";
 
 type Draft = {
@@ -53,6 +54,7 @@ export function QuoteForm() {
       /* ignore quota */
     }
     setBody(text);
+    trackLead("quote", draft.type);
     openSms(text);
     setDone(true);
   }
@@ -75,6 +77,13 @@ export function QuoteForm() {
         >
           Text this request
         </a>
+        <p className="mt-4 text-sm text-muted">
+          On a computer?{" "}
+          <a className="text-ink underline" href={mailtoHref("MPI website request", body)}>
+            Email this request instead
+          </a>{" "}
+          or call {company.phone}.
+        </p>
       </div>
     );
   }
