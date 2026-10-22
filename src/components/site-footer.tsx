@@ -107,6 +107,17 @@ export function SiteFooter() {
           </Link>
         </div>
       </div>
+      <div className="border-t border-bone/15">
+        <div className="mx-auto max-w-6xl px-5 pt-4 pb-[4.5rem] text-center text-xs text-bone/50 md:pb-4">
+          Website by{" "}
+          <a
+            href="mailto:usscallisterllc@gmail.com?subject=My%20Plumbing%20Inc%20website"
+            className="font-semibold text-bone/80 underline underline-offset-2 hover:text-copper"
+          >
+            USSCALLISTER LLC
+          </a>
+        </div>
+      </div>
     </footer>
   );
 }

@@ -4,7 +4,6 @@ import {
   Outlet,
   Scripts,
 } from "@tanstack/react-router";
-import { Analytics } from "@vercel/analytics/react";
 import { AuthProvider } from "@/lib/auth/provider";
 import {
   GoogleAnalyticsClickEvents,
@@ -69,7 +68,6 @@ function Root() {
           <SiteFooter />
           <StickyCall />
         </AuthProvider>
-        <Analytics />
         <GoogleAnalyticsClickEvents />
         <Scripts />
       </body>
