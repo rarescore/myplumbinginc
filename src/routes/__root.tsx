@@ -14,6 +14,7 @@ import { PreviewHostBridge } from "@/components/preview-host-bridge";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StickyCall } from "@/components/sticky-call";
+import { localBusinessJsonLd } from "@/lib/schema";
 import { company } from "@/lib/site";
 import appCss from "../styles.css?url";
 
@@ -59,6 +60,11 @@ function Root() {
       <head>
         <GoogleAnalyticsTag />
         <HeadContent />
+        <script
+          type="application/ld+json"
+          // biome-ignore lint: static JSON-LD built from site.ts
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+        />
       </head>
       <body className="min-h-dvh bg-bone font-sans text-fg">
         <PreviewHostBridge />
