@@ -1,8 +1,9 @@
 "use client";
 
+import { trackLead } from "@/components/google-analytics";
 import { useState, type FormEvent } from "react";
 import { company } from "@/lib/site";
-import { contactSmsBody, openSms, smsHref } from "@/lib/sms";
+import { contactSmsBody, mailtoHref, openSms, smsHref } from "@/lib/sms";
 
 type Props = {
   intent?: "general" | "financing";
@@ -35,6 +36,7 @@ export function ContactForm({ intent = "general" }: Props) {
       /* ignore */
     }
     setBody(text);
+    trackLead("contact", form.topic);
     openSms(text);
     setDone(true);
   }
@@ -57,6 +59,13 @@ export function ContactForm({ intent = "general" }: Props) {
         >
           Text this request
         </a>
+        <p className="mt-4 text-sm text-muted">
+          On a computer?{" "}
+          <a className="text-ink underline" href={mailtoHref("MPI website request", body)}>
+            Email this request instead
+          </a>{" "}
+          or call {company.phone}.
+        </p>
       </div>
     );
   }

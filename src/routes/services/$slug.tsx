@@ -12,7 +12,10 @@ export const Route = createFileRoute("/services/$slug")({
     return { service };
   },
   head: ({ loaderData }) => ({
-    meta: [{ title: `${loaderData?.service.title ?? "Service"} | My Plumbing Inc` }],
+    meta: [
+      { title: `${loaderData?.service.title ?? "Service"} in ${company.region} & Los Angeles | ${company.name}` },
+      ...(loaderData?.service.description ? [{ name: "description", content: loaderData.service.description }] : []),
+    ],
     links: loaderData ? [canonicalLink(`/services/${loaderData.service.slug}`)] : [],
   }),
 });
@@ -34,7 +37,7 @@ function ServicePage() {
             {service.kicker}
           </p>
           <h1 className="mt-3 font-display text-5xl font-medium text-bone">
-            {service.title}
+            {service.h1}
           </h1>
         </div>
       </section>
