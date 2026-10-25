@@ -32,6 +32,8 @@ export const nav = [
 export const services = [
   {
     slug: "adu-contractor-los-angeles",
+    h1: "ADU Construction in the San Fernando Valley & Los Angeles",
+    description: "Permitted ADU construction in the San Fernando Valley and Los Angeles — planned around wet walls, utility tie-ins, drainage, waterproofing, and inspection sequencing.",
     title: "ADU Construction",
     kicker: "Backyard living",
     summary: "Permitted accessory dwellings planned around wet walls, drainage, and how the house actually lives.",
@@ -51,6 +53,8 @@ export const services = [
   },
   {
     slug: "kitchen-remodeling-los-angeles",
+    h1: "Kitchen Remodeling in the San Fernando Valley & Los Angeles",
+    description: "Kitchen remodeling in the San Fernando Valley and Los Angeles — built around layout, millwork, island plumbing, gas lines, and decisions locked before stone is cut.",
     title: "Kitchen Remodeling",
     kicker: "Daily workhorse",
     summary: "Kitchens built around flow, storage, and plumbing that will still make sense in ten years.",
@@ -66,6 +70,8 @@ export const services = [
   },
   {
     slug: "bathroom-remodeling-los-angeles",
+    h1: "Bathroom Remodeling in the San Fernando Valley & Los Angeles",
+    description: "Bathroom remodeling in the San Fernando Valley and Los Angeles — shower pans, slope, niches, tile, and waterproofing treated as structure, not decoration.",
     title: "Bathroom Remodeling",
     kicker: "Waterproof first",
     summary: "Tile, slope, and waterproofing treated as structure — not decoration.",
@@ -81,6 +87,8 @@ export const services = [
   },
   {
     slug: "home-additions-los-angeles",
+    h1: "Home Additions in the San Fernando Valley & Los Angeles",
+    description: "Permitted home additions in the San Fernando Valley and Los Angeles — new square footage matched in massing, roof drainage, foundation, and wet rooms.",
     title: "Home Additions",
     kicker: "Seamless wing",
     summary: "New square footage that matches the house in massing, drainage, and the wet rooms you actually need.",
@@ -91,6 +99,8 @@ export const services = [
   },
   {
     slug: "garage-conversions-los-angeles",
+    h1: "Garage Conversions in the San Fernando Valley & Los Angeles",
+    description: "Legal, insulated, plumbed garage conversions in the San Fernando Valley and Los Angeles — backyard offices, rentals, and studios built to code.",
     title: "Garage Conversions",
     kicker: "Unused square feet",
     summary: "Legal, insulated, plumbed conversions — office, rental, or studio — not a drywalled parking stall.",
@@ -101,6 +111,8 @@ export const services = [
   },
   {
     slug: "home-remodeling-los-angeles",
+    h1: "Whole-Home Remodeling in the San Fernando Valley & Los Angeles",
+    description: "Phased whole-home remodeling across the San Fernando Valley and Los Angeles — one schedule, one open-wall sequence, and trade-level plumbing and finish work.",
     title: "Whole-Home Remodeling",
     kicker: "One sequence",
     summary: "Phased renovations with a single schedule, one set of decisions, and trade-level walls.",
@@ -111,6 +123,8 @@ export const services = [
   },
   {
     slug: "plumbing-connected-remodels",
+    h1: "Plumbing-Connected Remodels in the San Fernando Valley & Los Angeles",
+    description: "Kitchen, bath, laundry, and ADU remodels in the San Fernando Valley and Los Angeles priced and sequenced by a plumber-founded general contractor.",
     title: "Plumbing-Connected Remodels",
     kicker: "Behind the finish",
     summary: "Remodels that start with the pipes, the slope, and the things you cannot see in a mood board.",
@@ -121,6 +135,8 @@ export const services = [
   },
   {
     slug: "general-contractor-los-angeles",
+    h1: "Full Project Management & General Contracting in Los Angeles",
+    description: "Full project management in the San Fernando Valley and Los Angeles — written scope, schedule, permits, inspections, and direct oversight by Edgar G.",
     title: "Full Project Management",
     kicker: "One point of contact",
     summary: "Scope, schedule, inspections, and subs — held by the same person you called.",

@@ -11,7 +11,7 @@ export const localBusinessJsonLd = {
   "@id": `${SITE}/#business`,
   name: company.name,
   url: `${SITE}/`,
-  image: `${SITE}/photos/adu-dusk.jpg`,
+  image: `${SITE}/photos/adu-dusk.webp`,
   telephone: "+1-818-813-3277",
   email: company.email,
   address: {

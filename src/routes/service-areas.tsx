@@ -6,7 +6,10 @@ import { canonicalLink } from "@/lib/seo";
 export const Route = createFileRoute("/service-areas")({
   component: AreasPage,
   head: () => ({
-    meta: [{ title: "Service Areas | My Plumbing Inc" }],
+    meta: [
+      { title: "Service Areas Across the San Fernando Valley & Los Angeles | My Plumbing Inc" },
+      { name: "description", content: "Based in North Hills and building across the San Fernando Valley and Greater Los Angeles — Northridge, Sherman Oaks, Encino, Studio City, Burbank, Glendale, and nearby L.A. cities." },
+    ],
     links: [canonicalLink("/service-areas")],
   }),
 });
