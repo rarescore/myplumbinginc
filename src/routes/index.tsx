@@ -16,6 +16,7 @@ export const Route = createFileRoute("/")({
       {
         title: "My Plumbing Inc | Los Angeles General Contractor | CSLB #1120118",
       },
+      { name: "description", content: "Licensed Los Angeles general contractor (CSLB #1120118) building ADUs, kitchen and bath remodels, additions, and garage conversions from North Hills across the San Fernando Valley." },
     ],
     links: [
       canonicalLink("/"),

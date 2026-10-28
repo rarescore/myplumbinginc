@@ -5,7 +5,10 @@ import { canonicalLink } from "@/lib/seo";
 export const Route = createFileRoute("/about")({
   component: AboutPage,
   head: () => ({
-    meta: [{ title: "About | My Plumbing Inc" }],
+    meta: [
+      { title: "About My Plumbing Inc | Plumber-Founded General Contractor, CSLB #1120118" },
+      { name: "description", content: "A North Hills construction company built on plumbing: C36 roots, a B general building license (CSLB #1120118), written scopes, and Edgar G. as your one contact." },
+    ],
     links: [canonicalLink("/about")],
   }),
 });

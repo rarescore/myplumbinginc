@@ -5,7 +5,10 @@ import { canonicalLink } from "@/lib/seo";
 export const Route = createFileRoute("/reviews")({
   component: ReviewsPage,
   head: () => ({
-    meta: [{ title: "Reviews | My Plumbing Inc" }],
+    meta: [
+      { title: "Customer Reviews from the San Fernando Valley | My Plumbing Inc" },
+      { name: "description", content: "Reviews from North Hills, Van Nuys, and other Valley homeowners on drain repair, leak locates, and permitted remodels. Verify CSLB #1120118, then ask for a walk-through." },
+    ],
     links: [canonicalLink("/reviews")],
   }),
 });

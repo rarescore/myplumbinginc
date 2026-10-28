@@ -5,7 +5,10 @@ import { canonicalLink } from "@/lib/seo";
 export const Route = createFileRoute("/projects")({
   component: ProjectsPage,
   head: () => ({
-    meta: [{ title: "Projects | My Plumbing Inc" }],
+    meta: [
+      { title: "ADU, Kitchen, Bath & Addition Projects in the San Fernando Valley | My Plumbing Inc" },
+      { name: "description", content: "Recent ADU, kitchen, primary bath, and home addition projects in North Hills, Sherman Oaks, Encino, and Van Nuys, with the scope and the wall we opened on each." },
+    ],
     links: [canonicalLink("/projects")],
   }),
 });

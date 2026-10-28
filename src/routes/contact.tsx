@@ -6,7 +6,10 @@ import { canonicalLink } from "@/lib/seo";
 export const Route = createFileRoute("/contact")({
   component: ContactPage,
   head: () => ({
-    meta: [{ title: "Contact | My Plumbing Inc" }],
+    meta: [
+      { title: "Contact My Plumbing Inc | North Hills General Contractor | (818) 813-3277" },
+      { name: "description", content: "Call or text Edgar G. at (818) 813-3277 or email myplumbinginc@gmail.com. Based near North Hills, serving Greater Los Angeles, Mon–Fri 7a–5p. CSLB #1120118." },
+    ],
     links: [canonicalLink("/contact")],
   }),
 });

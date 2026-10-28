@@ -5,7 +5,10 @@ import { canonicalLink } from "@/lib/seo";
 export const Route = createFileRoute("/process")({
   component: ProcessPage,
   head: () => ({
-    meta: [{ title: "Process | My Plumbing Inc" }],
+    meta: [
+      { title: "How Our Remodel & ADU Process Works | My Plumbing Inc" },
+      { name: "description", content: "Site visit, written scope, permit, build, punch: how a My Plumbing Inc remodel or ADU moves, with one contact and walls that open once." },
+    ],
     links: [canonicalLink("/process")],
   }),
 });
