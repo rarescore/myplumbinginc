@@ -15,6 +15,9 @@ export default async function stripLParam(event: Ev, next: () => Promise<unknown
   const params = new URLSearchParams(event.url.search);
   params.delete("l");
   const qs = params.toString();
+  // l-only URLs: Netlify re-appends the original query to a query-less Location,
+  // which looped (/?l=1 -> /?l=1). Serve 200 and rely on the self canonical instead.
+  if (!qs) return next();
   const location = `https://www.myplumbinginc.com${event.url.pathname}${qs ? `?${qs}` : ""}`;
   return new Response(null, { status: 301, headers: { location, "cache-control": "public, max-age=86400" } });
 }
