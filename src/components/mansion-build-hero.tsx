@@ -156,14 +156,12 @@ export function MansionBuildHero() {
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-ink via-ink/80 to-transparent pt-24 md:inset-0 md:bg-gradient-to-r md:from-ink md:via-ink/55 md:to-transparent md:pt-0">
           <div className="pointer-events-auto mx-auto flex w-full max-w-6xl flex-col justify-end px-5 pb-16 md:h-full md:justify-center md:pt-24 md:pb-0">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-copper">{label}</p>
-            <h1>
-              <span className="mt-2 block max-w-xl font-display text-[2rem] leading-tight font-medium text-bone md:mt-4 md:max-w-2xl md:text-6xl lg:text-7xl">
-                Scroll. The house goes up.
-              </span>
-              <span className="mt-3 block max-w-md font-sans text-sm font-normal text-bone/80 md:mt-5 md:max-w-lg md:text-lg">
-                Los Angeles general contractor for ADUs, additions, and remodels — lot to lights-on, in the same sequence every time.
-              </span>
+            <h1 className="mt-2 max-w-xl font-display text-[2rem] leading-tight font-medium text-bone md:mt-4 md:max-w-2xl md:text-6xl lg:text-7xl">
+              Scroll. The house goes up.
             </h1>
+            <p className="mt-3 max-w-md text-sm text-bone/80 md:mt-5 md:max-w-lg md:text-lg">
+              Lot to lights-on — the same sequence we run on ADUs, additions, and remodels.
+            </p>
             <div className="mt-5 flex flex-wrap gap-3 md:mt-8">
               <Link
                 to="/quote"
