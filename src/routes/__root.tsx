@@ -1,3 +1,4 @@
+import { ClarityTag } from "@/components/clarity";
 import {
   createRootRoute,
   HeadContent,
@@ -60,6 +61,7 @@ function Root() {
       <head>
         <GoogleAnalyticsTag />
         <HeadContent />
+        <ClarityTag />
         <script
           type="application/ld+json"
           // biome-ignore lint: static JSON-LD built from site.ts
