@@ -6,7 +6,10 @@ import { canonicalLink } from "@/lib/seo";
 export const Route = createFileRoute("/financing")({
   component: FinancingPage,
   head: () => ({
-    meta: [{ title: "Financing | My Plumbing Inc" }],
+    meta: [
+      { title: "Financing for ADUs & Remodels | My Plumbing Inc" },
+      { name: "description", content: "Ask about third-party financing for permitted ADUs and remodels. Approval, rates, and terms come from the lender; cash jobs are welcome and there's no pressure to finance." },
+    ],
     links: [canonicalLink("/financing")],
   }),
 });

@@ -6,7 +6,10 @@ import { canonicalLink } from "@/lib/seo";
 export const Route = createFileRoute("/quote")({
   component: QuotePage,
   head: () => ({
-    meta: [{ title: "Book a visit | My Plumbing Inc" }],
+    meta: [
+      { title: "Book a Free Site Visit | My Plumbing Inc, San Fernando Valley" },
+      { name: "description", content: "Book a free site visit for an ADU, kitchen or bath remodel, addition, garage conversion, or plumbing-connected work. Three short steps; Edgar replies with a visit window." },
+    ],
     links: [canonicalLink("/quote")],
   }),
 });
