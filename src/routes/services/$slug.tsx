@@ -1,3 +1,4 @@
+import { SERVICE_SEO_TITLES } from "@/lib/seo-titles";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { CallLink } from "@/components/call-link";
 import { articles } from "@/lib/articles";
@@ -13,7 +14,11 @@ export const Route = createFileRoute("/services/$slug")({
   },
   head: ({ loaderData }) => ({
     meta: [
-      { title: `${loaderData?.service.title ?? "Service"} in ${company.region} & Los Angeles | ${company.name}` },
+      {
+        title:
+          (loaderData && SERVICE_SEO_TITLES[loaderData.service.slug]) ??
+          `${loaderData?.service.title ?? "Service"} in ${company.region} & Los Angeles | ${company.name}`,
+      },
       ...(loaderData?.service.description ? [{ name: "description", content: loaderData.service.description }] : []),
     ],
     links: loaderData ? [canonicalLink(`/services/${loaderData.service.slug}`)] : [],
