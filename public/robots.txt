@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
+# GSC audit 2026-11-01: ~47.6K /?l=<id> parameter URLs (already canonical to the
+# clean URL) were wasting crawl budget. Block the parameter, not the pages.
+Disallow: /*?l=
+Disallow: /*&l=
 
 Sitemap: https://www.myplumbinginc.com/sitemap.xml
