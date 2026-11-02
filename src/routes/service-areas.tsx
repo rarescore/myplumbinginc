@@ -7,8 +7,8 @@ export const Route = createFileRoute("/service-areas")({
   component: AreasPage,
   head: () => ({
     meta: [
-      { title: "Service Areas Across the San Fernando Valley & Los Angeles | My Plumbing Inc" },
-      { name: "description", content: "Based in North Hills and building across the San Fernando Valley and Greater Los Angeles — Northridge, Sherman Oaks, Encino, Studio City, Burbank, Glendale, and nearby L.A. cities." },
+      { title: "Service Areas: San Fernando Valley & LA | My Plumbing Inc" },
+      { name: "description", content: "Based in North Hills, building across the San Fernando Valley and Greater LA: Northridge, Sherman Oaks, Encino, Studio City, Burbank, Glendale and nearby." },
     ],
     links: [canonicalLink("/service-areas")],
   }),

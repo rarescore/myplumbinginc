@@ -6,8 +6,8 @@ export const Route = createFileRoute("/services/")({
   component: ServicesIndex,
   head: () => ({
     meta: [
-      { title: "Remodeling, ADU & General Contracting Services in the San Fernando Valley & Los Angeles | My Plumbing Inc" },
-      { name: "description", content: "ADU construction, kitchen and bathroom remodeling, home additions, garage conversions, whole-home remodeling, and plumbing-connected remodels across the San Fernando Valley and Los Angeles." },
+      { title: "Remodeling & ADU Contractor Services in LA | My Plumbing Inc" },
+      { name: "description", content: "ADU construction, kitchen and bath remodeling, home additions, garage conversions and whole-home remodels across the San Fernando Valley and Los Angeles." },
     ],
     links: [canonicalLink("/services")],
   }),
