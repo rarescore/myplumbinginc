@@ -8,4 +8,7 @@ export const SERVICE_SEO_TITLES: Record<string, string> = {
   "plumbing-connected-remodels": "Plumbing-Connected Remodels in Los Angeles | My Plumbing Inc",
   "garage-conversions-los-angeles": "Garage Conversion Contractor, SF Valley | My Plumbing Inc",
   "kitchen-remodeling-los-angeles": "Kitchen Remodeling in Los Angeles | My Plumbing Inc",
+  "bathroom-remodeling-los-angeles": "Bathroom Remodeling in Los Angeles | My Plumbing Inc",
+  "home-remodeling-los-angeles": "Whole-Home Remodeling in Los Angeles | My Plumbing Inc",
+  "general-contractor-los-angeles": "General Contractor in Los Angeles | My Plumbing Inc",
 };
